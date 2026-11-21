@@ -43,6 +43,9 @@ import NTPStatus from 'app/status/NTPStatus';
 import NetworkStatus from 'app/status/NetworkStatus';
 import Status from 'app/status/Status';
 import SystemLog from 'app/status/SystemLog';
+import Home from 'app/system/Home';
+import SystemMenu from 'app/system/SystemMenu';
+import SystemShell from 'app/system/SystemShell';
 import {
   Layout,
   RequireAdmin,
@@ -71,7 +74,7 @@ const errorPageStyles = {
   title: {
     fontSize: '2rem',
     margin: '0 0 1rem 0',
-    color: '#90CAF9',
+    color: '#9aa8b6',
     fontWeight: 500 as const
   },
   status: {
@@ -167,6 +170,10 @@ const router = createBrowserRouter(
           </RequireAuthenticated>
         }
       >
+        <Route element={<SystemShell />}>
+          <Route path="home" element={<Home />} />
+          <Route path="system/:menu?" element={<SystemMenu />} />
+        </Route>
         <Route path="dashboard/*" element={<Dashboard />} />
         <Route path="devices/*" element={<Devices />} />
         <Route path="sensors/*" element={<Sensors />} />
