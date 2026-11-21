@@ -734,6 +734,25 @@ const hu: Translation = {
   SYS_MAINT_MSG: 'Karbantartási üzenet', // draft, please review
   SYS_NEXT_MAINT: 'Következő karbantartás', // draft, please review
   SYS_GOTO_SERVICE: 'Ugrás a karbantartáshoz és hibákhoz', // draft, please review
+  SYS_FAULT_LAST: 'Utolsó hiba / üzenet', // draft, please review
+  SYS_FAULT_CTRL: 'A szabályozó utolsó hibája', // draft, please review
+  SYS_FAULT_SERVICE: 'Szervizkód', // draft, please review
+  SYS_FAULT_CAUSE: 'Lehetséges ok', // draft, please review
+  SYS_FAULT_FIX: 'Teendő', // draft, please review
+  SYS_FAULT_CLASS: 'Hibaosztály', // draft, please review
+  SYS_FAULT_ADD: 'Kiegészítő kód {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Nincs az adatbázisban', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Nincs értelmezés: a hibaadatbázis csak Buderus készülékekre vonatkozik.', // draft, please review
+  SYS_FAULT_SEARCH: 'Hibakód keresése', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Add meg a kijelzőn látható kódot és kiegészítő kódot, pl. H08, 6A 227 vagy 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus hibaadatbázis · {0} bejegyzés · csak Buderus készülékekre vonatkozik', // draft, please review
+  SYS_FAULT_NONE: 'Nincs tárolt hiba.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'mostanáig', // draft, please review
+  SYS_SEV_INFO: 'Üzemi üzenet', // draft, please review
+  SYS_SEV_SERVICE: 'Szerviz / karbantartás', // draft, please review
+  SYS_SEV_WARN: 'Hiba (korlátozott működés)', // draft, please review
+  SYS_SEV_ERROR: 'Súlyos hiba', // draft, please review
+  SYS_SEV_UNKNOWN: 'Ismeretlen', // draft, please review
 };
 
 export default hu;

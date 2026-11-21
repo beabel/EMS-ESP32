@@ -7,6 +7,7 @@ import type { IconName } from 'components/ui';
 import { useI18nContext } from 'i18n/i18n-react';
 
 import { ChangesBar } from '../main/ChangesBar';
+import { FaultPanel } from './Faults';
 import { ValueRow } from './ValueRow';
 import type { SectionId } from './catalog';
 import { buildMenus, groupItems } from './model';
@@ -167,6 +168,7 @@ const SystemMenu = memo(() => {
   } else {
     body = (
       <>
+        {!searching && current === 'service' && <FaultPanel items={data.items} />}
         {groups.map((g) => (
           <section
             key={`${g.title}|${g.section}|${g.items[0]?.devId}`}

@@ -734,6 +734,25 @@ const sk: Translation = {
   SYS_MAINT_MSG: 'Hlásenie údržby', // draft, please review
   SYS_NEXT_MAINT: 'Ďalšia údržba', // draft, please review
   SYS_GOTO_SERVICE: 'Prejsť na údržbu a poruchy', // draft, please review
+  SYS_FAULT_LAST: 'Posledná porucha / hlásenie', // draft, please review
+  SYS_FAULT_CTRL: 'Posledná porucha regulátora', // draft, please review
+  SYS_FAULT_SERVICE: 'Servisný kód', // draft, please review
+  SYS_FAULT_CAUSE: 'Možná príčina', // draft, please review
+  SYS_FAULT_FIX: 'Opatrenie', // draft, please review
+  SYS_FAULT_CLASS: 'Trieda poruchy', // draft, please review
+  SYS_FAULT_ADD: 'Doplnkový kód {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Nie je v databáze', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Výklad nie je k dispozícii: databáza porúch platí len pre zariadenia Buderus.', // draft, please review
+  SYS_FAULT_SEARCH: 'Vyhľadať kód poruchy', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Zadajte kód a doplnkový kód z displeja, napr. H08, 6A 227 alebo 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Databáza porúch Buderus · {0} záznamov · platí len pre zariadenia Buderus', // draft, please review
+  SYS_FAULT_NONE: 'Žiadna uložená porucha.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'do teraz', // draft, please review
+  SYS_SEV_INFO: 'Prevádzkové hlásenie', // draft, please review
+  SYS_SEV_SERVICE: 'Servis / údržba', // draft, please review
+  SYS_SEV_WARN: 'Porucha (obmedzená prevádzka)', // draft, please review
+  SYS_SEV_ERROR: 'Závažná porucha', // draft, please review
+  SYS_SEV_UNKNOWN: 'Neznáme', // draft, please review
 };
 
 export default sk;

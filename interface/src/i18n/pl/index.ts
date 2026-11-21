@@ -734,6 +734,25 @@ const pl: BaseTranslation = {
   SYS_MAINT_MSG: 'Komunikat konserwacyjny', // draft, please review
   SYS_NEXT_MAINT: 'Następna konserwacja', // draft, please review
   SYS_GOTO_SERVICE: 'Przejdź do konserwacji i błędów', // draft, please review
+  SYS_FAULT_LAST: 'Ostatnia usterka / komunikat', // draft, please review
+  SYS_FAULT_CTRL: 'Ostatni błąd regulatora', // draft, please review
+  SYS_FAULT_SERVICE: 'Kod serwisowy', // draft, please review
+  SYS_FAULT_CAUSE: 'Możliwa przyczyna', // draft, please review
+  SYS_FAULT_FIX: 'Środek zaradczy', // draft, please review
+  SYS_FAULT_CLASS: 'Klasa błędu', // draft, please review
+  SYS_FAULT_ADD: 'Kod dodatkowy {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Brak w bazie danych', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Brak interpretacji: baza błędów dotyczy tylko urządzeń Buderus.', // draft, please review
+  SYS_FAULT_SEARCH: 'Wyszukaj kod błędu', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Wpisz kod i kod dodatkowy z wyświetlacza, np. H08, 6A 227 lub 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Baza błędów Buderus · {0} wpisów · dotyczy tylko urządzeń Buderus', // draft, please review
+  SYS_FAULT_NONE: 'Brak zapisanych usterek.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'do teraz', // draft, please review
+  SYS_SEV_INFO: 'Komunikat roboczy', // draft, please review
+  SYS_SEV_SERVICE: 'Serwis / konserwacja', // draft, please review
+  SYS_SEV_WARN: 'Usterka (praca ograniczona)', // draft, please review
+  SYS_SEV_ERROR: 'Poważna usterka', // draft, please review
+  SYS_SEV_UNKNOWN: 'Nieznane', // draft, please review
 };
 
 export default pl;

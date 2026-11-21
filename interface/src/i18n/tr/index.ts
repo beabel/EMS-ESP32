@@ -734,6 +734,25 @@ const tr: Translation = {
   SYS_MAINT_MSG: 'Bakım mesajı', // draft, please review
   SYS_NEXT_MAINT: 'Sonraki bakım', // draft, please review
   SYS_GOTO_SERVICE: 'Bakım ve arızalara git', // draft, please review
+  SYS_FAULT_LAST: 'Son arıza / mesaj', // draft, please review
+  SYS_FAULT_CTRL: 'Denetleyicinin son arızası', // draft, please review
+  SYS_FAULT_SERVICE: 'Servis kodu', // draft, please review
+  SYS_FAULT_CAUSE: 'Olası neden', // draft, please review
+  SYS_FAULT_FIX: 'Çözüm', // draft, please review
+  SYS_FAULT_CLASS: 'Arıza sınıfı', // draft, please review
+  SYS_FAULT_ADD: 'Ek kod {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Veritabanında yok', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Yorum yok: arıza veritabanı yalnızca Buderus cihazları için geçerlidir.', // draft, please review
+  SYS_FAULT_SEARCH: 'Arıza kodu ara', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Ekrandaki kodu ve ek kodu girin, örn. H08, 6A 227 veya 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus arıza veritabanı · {0} kayıt · yalnızca Buderus cihazları için', // draft, please review
+  SYS_FAULT_NONE: 'Kayıtlı arıza yok.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'şimdiye kadar', // draft, please review
+  SYS_SEV_INFO: 'Çalışma mesajı', // draft, please review
+  SYS_SEV_SERVICE: 'Servis / bakım', // draft, please review
+  SYS_SEV_WARN: 'Arıza (sınırlı çalışma)', // draft, please review
+  SYS_SEV_ERROR: 'Ciddi arıza', // draft, please review
+  SYS_SEV_UNKNOWN: 'Bilinmiyor', // draft, please review
 };
 
 export default tr;

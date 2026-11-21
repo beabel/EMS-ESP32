@@ -734,6 +734,25 @@ const it: Translation = {
   SYS_MAINT_MSG: 'Messaggio di manutenzione', // draft, please review
   SYS_NEXT_MAINT: 'Prossima manutenzione', // draft, please review
   SYS_GOTO_SERVICE: 'Vai a manutenzione e guasti', // draft, please review
+  SYS_FAULT_LAST: 'Ultimo guasto / messaggio', // draft, please review
+  SYS_FAULT_CTRL: 'Ultimo guasto del regolatore', // draft, please review
+  SYS_FAULT_SERVICE: 'Codice di servizio', // draft, please review
+  SYS_FAULT_CAUSE: 'Possibile causa', // draft, please review
+  SYS_FAULT_FIX: 'Rimedio', // draft, please review
+  SYS_FAULT_CLASS: 'Classe di guasto', // draft, please review
+  SYS_FAULT_ADD: 'Codice aggiuntivo {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Non presente nel database', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Nessuna interpretazione disponibile: il database guasti vale solo per dispositivi Buderus.', // draft, please review
+  SYS_FAULT_SEARCH: 'Cerca un codice di guasto', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Inserisci il codice e il codice aggiuntivo dal display, ad es. H08, 6A 227 o 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Database guasti Buderus · {0} voci · valido solo per dispositivi Buderus', // draft, please review
+  SYS_FAULT_NONE: 'Nessun guasto memorizzato.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'fino ad ora', // draft, please review
+  SYS_SEV_INFO: 'Messaggio di funzionamento', // draft, please review
+  SYS_SEV_SERVICE: 'Assistenza / manutenzione', // draft, please review
+  SYS_SEV_WARN: 'Guasto (funzionamento limitato)', // draft, please review
+  SYS_SEV_ERROR: 'Guasto grave', // draft, please review
+  SYS_SEV_UNKNOWN: 'Sconosciuto', // draft, please review
 };
 
 export default it;

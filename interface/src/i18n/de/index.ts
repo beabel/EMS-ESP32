@@ -734,6 +734,25 @@ const de: Translation = {
   SYS_MAINT_MSG: 'Wartungsmeldung', // draft, please review
   SYS_NEXT_MAINT: 'Nächste Wartung', // draft, please review
   SYS_GOTO_SERVICE: 'Zu Wartung & Fehler', // draft, please review
+  SYS_FAULT_LAST: 'Letzte Störung / Meldung', // draft, please review
+  SYS_FAULT_CTRL: 'Letzter Reglerfehler', // draft, please review
+  SYS_FAULT_SERVICE: 'Servicecode', // draft, please review
+  SYS_FAULT_CAUSE: 'Mögliche Ursache', // draft, please review
+  SYS_FAULT_FIX: 'Maßnahme', // draft, please review
+  SYS_FAULT_CLASS: 'Fehlerklasse', // draft, please review
+  SYS_FAULT_ADD: 'Zusatzcode {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Nicht in der Datenbank', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Keine Deutung möglich: Die Fehlerdatenbank gilt nur für Buderus-Geräte.', // draft, please review
+  SYS_FAULT_SEARCH: 'Fehlercode nachschlagen', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Code und Zusatzcode vom Display eingeben, z. B. H08, 6A 227 oder 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus-Fehlerdatenbank · {0} Einträge · gilt nur für Buderus-Geräte', // draft, please review
+  SYS_FAULT_NONE: 'Keine gespeicherte Störung.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'bis jetzt', // draft, please review
+  SYS_SEV_INFO: 'Betriebsmeldung', // draft, please review
+  SYS_SEV_SERVICE: 'Service / Wartung', // draft, please review
+  SYS_SEV_WARN: 'Störung (eingeschränkt)', // draft, please review
+  SYS_SEV_ERROR: 'Schwere Störung', // draft, please review
+  SYS_SEV_UNKNOWN: 'Unbekannt', // draft, please review
 };
 
 export default de;

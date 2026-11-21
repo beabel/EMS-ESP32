@@ -734,6 +734,25 @@ const zh: Translation = {
   SYS_MAINT_MSG: '维护信息', // draft, please review
   SYS_NEXT_MAINT: '下次维护', // draft, please review
   SYS_GOTO_SERVICE: '前往维护与故障', // draft, please review
+  SYS_FAULT_LAST: '最近故障/信息', // draft, please review
+  SYS_FAULT_CTRL: '控制器最近故障', // draft, please review
+  SYS_FAULT_SERVICE: '服务代码', // draft, please review
+  SYS_FAULT_CAUSE: '可能原因', // draft, please review
+  SYS_FAULT_FIX: '处理措施', // draft, please review
+  SYS_FAULT_CLASS: '故障等级', // draft, please review
+  SYS_FAULT_ADD: '附加代码 {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: '数据库中没有', // draft, please review
+  SYS_FAULT_RAW_ONLY: '无法解读:故障数据库仅适用于 Buderus 设备。', // draft, please review
+  SYS_FAULT_SEARCH: '查询故障代码', // draft, please review
+  SYS_FAULT_SEARCH_HINT: '输入显示屏上的代码和附加代码,例如 H08、6A 227 或 1018。', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus 故障数据库 · {0} 条 · 仅适用于 Buderus 设备', // draft, please review
+  SYS_FAULT_NONE: '没有已存储的故障。', // draft, please review
+  SYS_FAULT_UNTIL_NOW: '至今', // draft, please review
+  SYS_SEV_INFO: '运行信息', // draft, please review
+  SYS_SEV_SERVICE: '服务/维护', // draft, please review
+  SYS_SEV_WARN: '故障(受限运行)', // draft, please review
+  SYS_SEV_ERROR: '严重故障', // draft, please review
+  SYS_SEV_UNKNOWN: '未知', // draft, please review
 };
 
 export default zh;

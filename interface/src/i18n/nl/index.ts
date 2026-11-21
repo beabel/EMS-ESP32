@@ -734,6 +734,25 @@ const nl: Translation = {
   SYS_MAINT_MSG: 'Onderhoudsmelding', // draft, please review
   SYS_NEXT_MAINT: 'Volgend onderhoud', // draft, please review
   SYS_GOTO_SERVICE: 'Naar onderhoud & storingen', // draft, please review
+  SYS_FAULT_LAST: 'Laatste storing / melding', // draft, please review
+  SYS_FAULT_CTRL: 'Laatste regelaarstoring', // draft, please review
+  SYS_FAULT_SERVICE: 'Servicecode', // draft, please review
+  SYS_FAULT_CAUSE: 'Mogelijke oorzaak', // draft, please review
+  SYS_FAULT_FIX: 'Maatregel', // draft, please review
+  SYS_FAULT_CLASS: 'Storingsklasse', // draft, please review
+  SYS_FAULT_ADD: 'Aanvullende code {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Niet in de database', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Geen uitleg beschikbaar: de storingsdatabase geldt alleen voor Buderus-apparaten.', // draft, please review
+  SYS_FAULT_SEARCH: 'Storingscode opzoeken', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Voer de code en aanvullende code van het display in, bijv. H08, 6A 227 of 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus-storingsdatabase · {0} items · geldt alleen voor Buderus-apparaten', // draft, please review
+  SYS_FAULT_NONE: 'Geen opgeslagen storing.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'tot nu', // draft, please review
+  SYS_SEV_INFO: 'Bedrijfsmelding', // draft, please review
+  SYS_SEV_SERVICE: 'Service / onderhoud', // draft, please review
+  SYS_SEV_WARN: 'Storing (beperkt bedrijf)', // draft, please review
+  SYS_SEV_ERROR: 'Ernstige storing', // draft, please review
+  SYS_SEV_UNKNOWN: 'Onbekend', // draft, please review
 };
 
 export default nl;

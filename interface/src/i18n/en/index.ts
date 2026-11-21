@@ -734,6 +734,25 @@ const en: Translation = {
   SYS_MAINT_MSG: 'Maintenance message', // draft, please review
   SYS_NEXT_MAINT: 'Next maintenance', // draft, please review
   SYS_GOTO_SERVICE: 'Go to maintenance & faults', // draft, please review
+  SYS_FAULT_LAST: 'Last fault / message', // draft, please review
+  SYS_FAULT_CTRL: 'Last controller fault', // draft, please review
+  SYS_FAULT_SERVICE: 'Service code', // draft, please review
+  SYS_FAULT_CAUSE: 'Possible cause', // draft, please review
+  SYS_FAULT_FIX: 'Remedy', // draft, please review
+  SYS_FAULT_CLASS: 'Fault class', // draft, please review
+  SYS_FAULT_ADD: 'Additional code {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Not in the database', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'No interpretation available: the fault database only applies to Buderus devices.', // draft, please review
+  SYS_FAULT_SEARCH: 'Look up a fault code', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Enter the code and additional code from the display, e.g. H08, 6A 227 or 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus fault database · {0} entries · applies to Buderus devices only', // draft, please review
+  SYS_FAULT_NONE: 'No stored fault.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'until now', // draft, please review
+  SYS_SEV_INFO: 'Operating message', // draft, please review
+  SYS_SEV_SERVICE: 'Service / maintenance', // draft, please review
+  SYS_SEV_WARN: 'Fault (limited operation)', // draft, please review
+  SYS_SEV_ERROR: 'Serious fault', // draft, please review
+  SYS_SEV_UNKNOWN: 'Unknown', // draft, please review
 };
 
 export default en;

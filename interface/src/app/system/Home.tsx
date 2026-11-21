@@ -1,11 +1,12 @@
 import { memo } from 'react';
 import type { ReactNode } from 'react';
 
-import { ButtonLink, Icon, Loader, Message, StatusDot } from 'components/ui';
+import { ButtonLink, Icon, Loader, Message, StatusDot, Tag } from 'components/ui';
 import type { IconName, StatusState } from 'components/ui';
 import { useI18nContext } from 'i18n/i18n-react';
 
 import { ChangesBar } from '../main/ChangesBar';
+import { faultSummary, useFaultCards } from './Faults';
 import { ValueControl, ValueRow, useFormat } from './ValueRow';
 import { findItem, str } from './model';
 import type { SysItem } from './model';
@@ -81,11 +82,13 @@ const Big = ({ item }: { item: SysItem | undefined }) => {
 
 const Kv = ({ label, item }: { label: string; item: SysItem | undefined }) => {
   const format = useFormat();
+  const { LL } = useI18nContext();
   if (!item) return null;
+  const text = format(item.dv.v, item.dv.u) || '–';
   return (
     <>
       <span>{label}</span>
-      <span>{format(item.dv.v, item.dv.u) || '–'}</span>
+      <span>{text.replace(/\s*-\s*now$/i, ` ${LL.SYS_FAULT_UNTIL_NOW()}`)}</span>
     </>
   );
 };
@@ -117,6 +120,7 @@ const Home = memo(() => {
   const data = useSystemData();
   const edits = useEdits(data);
   const fav = useFavorites(data);
+  const { cards } = useFaultCards(data.items);
   const it = data.items;
   const f = (key: string, tag?: string) => findItem(it, key, tag);
 
@@ -152,6 +156,7 @@ const Home = memo(() => {
   ].sort();
 
   const burner = f('boiler:burngas');
+  const last = faultSummary(cards);
   const dhwCur = f('boiler:dhw/curtemp');
   // the controller has no target temperature on some systems, then the boiler's counts
   const dhwSet = f('thermostat:dhw/settemp') ?? f('boiler:dhw/seltemp');
@@ -244,6 +249,34 @@ const Home = memo(() => {
         )}
 
         <Tile icon="build" title={LL.SYS_NOTES()} sub={LL.SYS_NOTES_SUB()}>
+          {last && (
+            <div className="sys-note">
+              <strong>
+                {last.code}
+                {last.add ? `(${last.add})` : ''}
+              </strong>{' '}
+              {last.entry && (
+                <Tag kind={last.entry.severity === 'error' ? 'err' : 'warn'}>
+                  {last.entry.severity === 'info'
+                    ? LL.SYS_SEV_INFO()
+                    : last.entry.severity === 'service'
+                      ? LL.SYS_SEV_SERVICE()
+                      : last.entry.severity === 'error'
+                        ? LL.SYS_SEV_ERROR()
+                        : last.entry.severity === 'warn'
+                          ? LL.SYS_SEV_WARN()
+                          : LL.SYS_SEV_UNKNOWN()}
+                </Tag>
+              )}
+              <div className="t">
+                {last.entry
+                  ? last.entry.title
+                  : last.applies
+                    ? LL.SYS_FAULT_UNKNOWN()
+                    : ''}
+              </div>
+            </div>
+          )}
           <div className="sys-kv">
             <Kv label={LL.SYS_LAST_FAULT()} item={f('boiler:lastcode')} />
             <Kv label={LL.SYS_MAINT_MSG()} item={f('boiler:maintenancemessage')} />

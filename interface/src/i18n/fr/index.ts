@@ -734,6 +734,25 @@ const fr: Translation = {
   SYS_MAINT_MSG: 'Message de maintenance', // draft, please review
   SYS_NEXT_MAINT: 'Prochaine maintenance', // draft, please review
   SYS_GOTO_SERVICE: 'Aller à maintenance et défauts', // draft, please review
+  SYS_FAULT_LAST: 'Dernier défaut / message', // draft, please review
+  SYS_FAULT_CTRL: 'Dernier défaut du régulateur', // draft, please review
+  SYS_FAULT_SERVICE: 'Code de service', // draft, please review
+  SYS_FAULT_CAUSE: 'Cause possible', // draft, please review
+  SYS_FAULT_FIX: 'Remède', // draft, please review
+  SYS_FAULT_CLASS: 'Classe de défaut', // draft, please review
+  SYS_FAULT_ADD: 'Code supplémentaire {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Absent de la base de données', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Aucune interprétation disponible : la base de défauts ne s’applique qu’aux appareils Buderus.', // draft, please review
+  SYS_FAULT_SEARCH: 'Rechercher un code de défaut', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Saisissez le code et le code supplémentaire affichés, p. ex. H08, 6A 227 ou 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Base de défauts Buderus · {0} entrées · uniquement pour les appareils Buderus', // draft, please review
+  SYS_FAULT_NONE: 'Aucun défaut enregistré.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'jusqu’à maintenant', // draft, please review
+  SYS_SEV_INFO: 'Message de fonctionnement', // draft, please review
+  SYS_SEV_SERVICE: 'Service / maintenance', // draft, please review
+  SYS_SEV_WARN: 'Défaut (fonctionnement limité)', // draft, please review
+  SYS_SEV_ERROR: 'Défaut grave', // draft, please review
+  SYS_SEV_UNKNOWN: 'Inconnu', // draft, please review
 };
 
 export default fr;

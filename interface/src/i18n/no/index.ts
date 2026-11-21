@@ -734,6 +734,25 @@ const no: Translation = {
   SYS_MAINT_MSG: 'Vedlikeholdsmelding', // draft, please review
   SYS_NEXT_MAINT: 'Neste vedlikehold', // draft, please review
   SYS_GOTO_SERVICE: 'Gå til vedlikehold og feil', // draft, please review
+  SYS_FAULT_LAST: 'Siste feil / melding', // draft, please review
+  SYS_FAULT_CTRL: 'Siste regulatorfeil', // draft, please review
+  SYS_FAULT_SERVICE: 'Servicekode', // draft, please review
+  SYS_FAULT_CAUSE: 'Mulig årsak', // draft, please review
+  SYS_FAULT_FIX: 'Tiltak', // draft, please review
+  SYS_FAULT_CLASS: 'Feilklasse', // draft, please review
+  SYS_FAULT_ADD: 'Tilleggskode {0}', // draft, please review
+  SYS_FAULT_UNKNOWN: 'Ikke i databasen', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Ingen tolkning tilgjengelig: feildatabasen gjelder bare for Buderus-enheter.', // draft, please review
+  SYS_FAULT_SEARCH: 'Slå opp feilkode', // draft, please review
+  SYS_FAULT_SEARCH_HINT: 'Skriv inn koden og tilleggskoden fra displayet, f.eks. H08, 6A 227 eller 1018.', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus feildatabase · {0} oppføringer · gjelder bare Buderus-enheter', // draft, please review
+  SYS_FAULT_NONE: 'Ingen lagret feil.', // draft, please review
+  SYS_FAULT_UNTIL_NOW: 'til nå', // draft, please review
+  SYS_SEV_INFO: 'Driftsmelding', // draft, please review
+  SYS_SEV_SERVICE: 'Service / vedlikehold', // draft, please review
+  SYS_SEV_WARN: 'Feil (begrenset drift)', // draft, please review
+  SYS_SEV_ERROR: 'Alvorlig feil', // draft, please review
+  SYS_SEV_UNKNOWN: 'Ukjent', // draft, please review
 };
 
 export default no;
