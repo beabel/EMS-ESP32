@@ -75,10 +75,10 @@ const scheduleTheme = {
   `,
   HeaderRow: `
     text-transform: uppercase;
-    background-color: black;
-    color: #90CAF9;
+    background-color: #12161b;
+    color: #9aa8b6;
     .th {
-      border-bottom: 1px solid #565656;
+      border-bottom: 1px solid #2f3945;
       height: 36px;
     }
   `,
@@ -87,10 +87,10 @@ const scheduleTheme = {
     position: relative;
     cursor: pointer;
     .td {
-      border-bottom: 1px solid #565656;
+      border-bottom: 1px solid #2f3945;
     }
     &:hover .td {
-      background-color: #177ac9;
+      background-color: #1b2c40;
     }
   `
 };

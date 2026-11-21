@@ -111,10 +111,10 @@ const Dashboard = memo(() => {
       cursor: pointer;
       background-color: #1e1e1e;
       &:nth-of-type(odd) .td {
-          background-color: #303030;
+          background-color: #1c2229;
       },
       &:hover .td {
-        background-color: #177ac9;
+        background-color: #1b2c40;
       },
     `,
     BaseCell: `

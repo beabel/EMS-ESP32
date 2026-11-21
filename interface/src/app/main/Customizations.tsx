@@ -197,10 +197,10 @@ const Customizations = () => {
     `,
     HeaderRow: `
       text-transform: uppercase;
-      background-color: black;
-      color: #90CAF9;
+      background-color: #12161b;
+      color: #9aa8b6;
       .th {
-        border-bottom: 1px solid #565656;
+        border-bottom: 1px solid #2f3945;
         height: 36px;
       }
       &:nth-of-type(1) .th {
@@ -212,15 +212,15 @@ const Customizations = () => {
       position: relative;
       cursor: pointer;
       .td {
-        border-top: 1px solid #565656;
-        border-bottom: 1px solid #565656;
+        border-top: 1px solid #2f3945;
+        border-bottom: 1px solid #2f3945;
       }
       &.tr.tr-body.row-select.row-select-single-selected {
         background-color: #3d4752;
       }
       &:hover .td {
-        border-top: 1px solid #177ac9;
-        background-color: #177ac9;
+        border-top: 1px solid #2f3945;
+        background-color: #1b2c40;
       }
     `,
     Cell: `

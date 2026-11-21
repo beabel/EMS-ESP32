@@ -43,23 +43,23 @@ const SystemActivity = () => {
     `,
     HeaderRow: `
       text-transform: uppercase;
-      background-color: black;
-      color: #90CAF9;
+      background-color: #12161b;
+      color: #9aa8b6;
 
       .th {
         height: 36px;
-        border-bottom: 1px solid #565656;
+        border-bottom: 1px solid #2f3945;
       }
     `,
     Row: `
       .td {
         padding: 8px;
-        border-top: 1px solid #565656;
-        border-bottom: 1px solid #565656;
+        border-top: 1px solid #2f3945;
+        border-bottom: 1px solid #2f3945;
       }
 
       &:nth-of-type(odd) .td {
-        background-color: #303030;
+        background-color: #1c2229;
       }
       &:nth-of-type(even) .td {
         background-color: #1e1e1e;

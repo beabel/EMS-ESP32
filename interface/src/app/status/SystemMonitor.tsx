@@ -117,7 +117,7 @@ const SystemMonitor = ({ onDone }: SystemMonitorProps) => {
           maxWidth: '500px',
           backgroundColor: '#393939',
           border: 2,
-          borderColor: '#565656',
+          borderColor: '#2f3945',
           borderRadius: '8px',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
           p: 3

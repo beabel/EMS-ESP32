@@ -1,124 +1,148 @@
 import { memo, useContext, useState } from 'react';
+import {
+  LuCalendarClock,
+  LuChartColumn,
+  LuChevronDown,
+  LuCircleHelp,
+  LuCircleUser,
+  LuCpu,
+  LuHouse,
+  LuLayoutDashboard,
+  LuListPlus,
+  LuSettings,
+  LuSlidersHorizontal,
+  LuTerminal,
+  LuThermometer,
+  LuWrench
+} from 'react-icons/lu';
 
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AssessmentIcon from '@mui/icons-material/Assessment';
-import CategoryIcon from '@mui/icons-material/Category';
-import ConstructionIcon from '@mui/icons-material/Construction';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-import MoreTimeIcon from '@mui/icons-material/MoreTime';
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
-import SensorsIcon from '@mui/icons-material/Sensors';
-import SettingsIcon from '@mui/icons-material/Settings';
-import StarIcon from '@mui/icons-material/Star';
-import { Box, Divider, List, ListItemButton, ListItemText } from '@mui/material';
+import { Box, ButtonBase, List, Typography } from '@mui/material';
 
+import { useTexts } from 'app/system/texts';
 import LayoutMenuItem from 'components/layout/LayoutMenuItem';
 import { AuthenticatedContext } from 'contexts/authentication';
 import { useI18nContext } from 'i18n/i18n-react';
 
+const GroupHeader = ({
+  label,
+  open,
+  onToggle
+}: {
+  label: string;
+  open: boolean;
+  onToggle: () => void;
+}) => (
+  <ButtonBase
+    onClick={onToggle}
+    sx={{
+      display: 'flex',
+      width: 'calc(100% - 16px)',
+      mx: 1,
+      mt: 1.5,
+      px: 1.25,
+      py: 0.75,
+      borderRadius: '8px',
+      justifyContent: 'space-between',
+      color: 'text.secondary',
+      '&:hover': { bgcolor: 'action.hover' }
+    }}
+  >
+    <Typography
+      sx={{
+        fontSize: 11,
+        letterSpacing: '.8px',
+        textTransform: 'uppercase',
+        fontWeight: 600
+      }}
+    >
+      {label}
+    </Typography>
+    <Box
+      sx={{
+        display: 'flex',
+        transform: open ? 'rotate(0)' : 'rotate(-90deg)',
+        transition: '0.2s'
+      }}
+    >
+      <LuChevronDown size={14} />
+    </Box>
+  </ButtonBase>
+);
+
 const LayoutMenuComponent = () => {
   const { me, versions } = useContext(AuthenticatedContext);
   const { LL } = useI18nContext();
+  const t = useTexts();
   const [menuOpen, setMenuOpen] = useState(true);
 
   const upgradeAvailable = versions?.current?.upgradeable ?? false;
 
-  const handleMenuToggle = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
   return (
     <>
-      <List component="nav">
-        <LayoutMenuItem icon={StarIcon} label="Dashboard" to={`/dashboard`} />
-        <LayoutMenuItem icon={CategoryIcon} label={LL.DEVICES()} to={`/devices`} />
-        <Divider />
-
-        <Box
-          sx={{
-            bgcolor: menuOpen ? 'rgba(71, 98, 130, 0.2)' : null,
-            pb: menuOpen ? 2 : 0
-          }}
-        >
-          <ListItemButton
-            alignItems="flex-start"
-            onClick={handleMenuToggle}
-            sx={{
-              '&:hover, &:focus': { '& svg': { opacity: 1 } }
-            }}
-          >
-            <ListItemText
-              primary={LL.MODULES()}
-              sx={{ my: 0 }}
-              slotProps={{
-                primary: {
-                  sx: { fontWeight: 600, mb: '2px', color: 'lightblue' }
-                }
-              }}
-            />
-            <KeyboardArrowDown
-              sx={{
-                mr: -1,
-                opacity: 0,
-                transform: menuOpen ? 'rotate(-180deg)' : 'rotate(0)',
-                transition: '0.2s'
-              }}
-            />
-          </ListItemButton>
-          {menuOpen && (
-            <>
-              <LayoutMenuItem
-                icon={SensorsIcon}
-                label={LL.SENSORS()}
-                to={`/sensors`}
-              />
-
-              <LayoutMenuItem
-                icon={ConstructionIcon}
-                label={LL.CUSTOMIZATIONS()}
-                disabled={!me.admin}
-                to={`/customizations`}
-              />
-              <LayoutMenuItem
-                icon={PlaylistPlayIcon}
-                label={LL.COMMANDS()}
-                disabled={!me.admin}
-                to={`/commands`}
-              />
-              <LayoutMenuItem
-                icon={MoreTimeIcon}
-                label={LL.SCHEDULER()}
-                disabled={!me.admin}
-                to={`/scheduler`}
-              />
-              <LayoutMenuItem
-                icon={PlaylistAddIcon}
-                label={LL.CUSTOM_ENTITIES(0)}
-                disabled={!me.admin}
-                to={`/customentities`}
-              />
-            </>
-          )}
-        </Box>
-      </List>
-      <List style={{ marginTop: `auto` }}>
+      <List component="nav" sx={{ px: 0.5 }}>
+        <LayoutMenuItem icon={LuHouse} label={t('HOME')} to={`/home`} />
         <LayoutMenuItem
-          icon={AssessmentIcon}
-          label={LL.STATUS_OF('')}
-          to="/status"
+          icon={LuSlidersHorizontal}
+          label={t('SYSTEM')}
+          to={`/system`}
         />
         <LayoutMenuItem
-          icon={SettingsIcon}
+          icon={LuLayoutDashboard}
+          label="Dashboard"
+          to={`/dashboard`}
+        />
+        <LayoutMenuItem icon={LuCpu} label={LL.DEVICES()} to={`/devices`} />
+
+        <GroupHeader
+          label={LL.MODULES()}
+          open={menuOpen}
+          onToggle={() => setMenuOpen((prev) => !prev)}
+        />
+        {menuOpen && (
+          <>
+            <LayoutMenuItem
+              icon={LuThermometer}
+              label={LL.SENSORS()}
+              to={`/sensors`}
+            />
+            <LayoutMenuItem
+              icon={LuWrench}
+              label={LL.CUSTOMIZATIONS()}
+              disabled={!me.admin}
+              to={`/customizations`}
+            />
+            <LayoutMenuItem
+              icon={LuTerminal}
+              label={LL.COMMANDS()}
+              disabled={!me.admin}
+              to={`/commands`}
+            />
+            <LayoutMenuItem
+              icon={LuCalendarClock}
+              label={LL.SCHEDULER()}
+              disabled={!me.admin}
+              to={`/scheduler`}
+            />
+            <LayoutMenuItem
+              icon={LuListPlus}
+              label={LL.CUSTOM_ENTITIES(0)}
+              disabled={!me.admin}
+              to={`/customentities`}
+            />
+          </>
+        )}
+      </List>
+      <List sx={{ mt: 'auto', px: 0.5, borderTop: 1, borderColor: 'divider' }}>
+        <LayoutMenuItem icon={LuChartColumn} label={LL.STATUS_OF('')} to="/status" />
+        <LayoutMenuItem
+          icon={LuSettings}
           label={LL.SETTINGS(0)}
           disabled={!me.admin}
           to="/settings"
           badge={upgradeAvailable}
         />
-        <LayoutMenuItem icon={LiveHelpIcon} label={LL.HELP()} to={`/help`} />
-        <Divider />
-        <LayoutMenuItem icon={AccountCircleIcon} label={me.username} to={`/user`} />
+        <LayoutMenuItem icon={LuCircleHelp} label={LL.HELP()} to={`/help`} />
+        <LayoutMenuItem icon={LuCircleUser} label={me.username} to={`/user`} />
       </List>
     </>
   );

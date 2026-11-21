@@ -826,7 +826,7 @@ const Version = () => {
 
   return (
     <SectionContent>
-      <Box sx={{ p: 2, border: '1px solid #565656', borderRadius: 2 }}>
+      <Box sx={{ p: 2, border: '1px solid #2f3945', borderRadius: 2 }}>
         <Typography sx={{ mb: 1 }} variant="h6" color="primary">
           {LL.THIS_VERSION()}
         </Typography>

@@ -1,11 +1,4 @@
-import {
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useState
-} from 'react';
+import { memo, useCallback, useContext, useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 import { Link, useNavigate } from 'react-router';
 
@@ -80,7 +73,6 @@ const Devices = memo(() => {
   const { LL } = useI18nContext();
   const { me } = useContext(AuthenticatedContext);
 
-  const [size, setSize] = useState([0, 0]);
   const [selectedDeviceValue, setSelectedDeviceValue] = useState<DeviceValue>();
   const [onlyFav, setOnlyFav] = useState(false);
   const [deviceValueDialogOpen, setDeviceValueDialogOpen] = useState(false);
@@ -116,40 +108,16 @@ const Devices = memo(() => {
     }
   );
 
-  useLayoutEffect(() => {
-    let raf = 0;
-    const updateSize = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        setSize([window.innerWidth, window.innerHeight]);
-      });
-    };
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => {
-      window.removeEventListener('resize', updateSize);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  const leftOffset = () => {
-    const devicesWindow = document.getElementById('devices-window');
-    if (!devicesWindow) return 0;
-    const { left, right } = devicesWindow.getBoundingClientRect();
-    if (!left || !right) return 0;
-    return left + (right - left < 400 ? 0 : 200);
-  };
-
   const common_theme = useTheme({
     BaseRow: `
       font-size: 14px;
     `,
     HeaderRow: `
       text-transform: uppercase;
-      background-color: black;
-      color: #90CAF9;
+      background-color: #12161b;
+      color: #9aa8b6;
       .th {
-        border-bottom: 1px solid #565656;
+        border-bottom: 1px solid #2f3945;
       }
     `,
     Row: `
@@ -159,7 +127,7 @@ const Devices = memo(() => {
         padding: 8px;
       }
       &.tr.tr-body.row-select.row-select-single-selected {
-        background-color: #177ac9;
+        background-color: #1b2c40;
       }
     `
   });
@@ -182,10 +150,10 @@ const Devices = memo(() => {
     `,
       Row: `
       &:nth-of-type(odd) .td {
-          background-color: #303030;
+          background-color: #1c2229;
       },
       &:hover .td {
-        background-color: #177ac9;
+        background-color: #1b2c40;
       },
     `
     }
@@ -197,11 +165,8 @@ const Devices = memo(() => {
       Table: `
       --data-table-library_grid-template-columns: minmax(200px, auto) minmax(150px, auto) 40px;
       height: auto;
-      max-height: 100%;
-      overflow-y: scroll;
-      ::-webkit-scrollbar {
-        display:none;
-      }
+      max-height: none;
+      overflow: visible;
     `,
       BaseRow: `
     .td {
@@ -210,26 +175,26 @@ const Devices = memo(() => {
    `,
       BaseCell: `
       &:nth-of-type(1) {
-        border-left: 1px solid #177ac9;
+        border-left: 1px solid #2f3945;
       },
       &:nth-of-type(2) {
         text-align: right;
       },
       &:nth-of-type(3) {
-        border-right: 1px solid #177ac9;
+        border-right: 1px solid #2f3945;
       }
     `,
       HeaderRow: `
       .th {
-        border-top: 1px solid #565656;
+        border-top: 1px solid #2f3945;
       }
     `,
       Row: `
       &:nth-of-type(odd) .td {
-        background-color: #303030;
+        background-color: #1c2229;
       },
       &:hover .td {
-        background-color: #177ac9;
+        background-color: #1b2c40;
     }
     `
     }
@@ -644,24 +609,30 @@ const Devices = memo(() => {
       return;
     }
 
-    const [, height] = size;
     return (
-      <Box
-        sx={{
-          backgroundColor: 'black',
-          position: 'absolute',
-          left: leftOffset,
-          right: 0,
-          bottom: 0,
-          top: 64,
-          zIndex: 'modal',
-          maxHeight: () => (height || 0) - 126,
-          border: '1px solid #177ac9'
+      <Dialog
+        open
+        onClose={resetDeviceSelect}
+        maxWidth="md"
+        fullWidth
+        slotProps={{
+          paper: {
+            sx: {
+              maxHeight: 'min(86vh, 880px)',
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: '18px',
+              border: 1,
+              borderColor: 'divider',
+              backgroundImage: 'none',
+              overflow: 'hidden'
+            }
+          }
         }}
       >
-        <Box sx={{ p: 1 }}>
+        <Box sx={{ p: 2, pb: 1, flex: 'none' }}>
           <Grid container sx={{ justifyContent: 'space-between' }}>
-            <Typography noWrap variant="subtitle1" color="warning">
+            <Typography noWrap variant="h6" sx={{ fontWeight: 700 }}>
               {deviceInfo.n}&nbsp;(
               {deviceInfo.tn})
             </Typography>
@@ -743,68 +714,82 @@ const Devices = memo(() => {
           </span>
         </Box>
 
-        <Table
-          data={{ nodes: Array.from(shown_data) }}
-          theme={data_theme}
-          sort={dv_sort}
-          layout={{ custom: true, fixedHeader: true }}
+        <Box
+          sx={{
+            flex: '0 1 auto',
+            minHeight: 0,
+            overflowY: 'auto',
+            scrollbarWidth: 'thin'
+          }}
         >
-          {(tableList: DeviceValue[]) => (
-            <>
-              <Header>
-                <HeaderRow>
-                  <HeaderCell resize>
-                    <Button
-                      fullWidth
-                      style={{ fontSize: '14px', justifyContent: 'flex-start' }}
-                      endIcon={getSortIcon(dv_sort.state, 'NAME')}
-                      onClick={() => dv_sort.fns.onToggleSort({ sortKey: 'NAME' })}
-                    >
-                      {LL.ENTITY_NAME(0)}
-                    </Button>
-                  </HeaderCell>
-                  <HeaderCell resize>
-                    <Button
-                      fullWidth
-                      style={{ fontSize: '14px', justifyContent: 'flex-end' }}
-                      endIcon={getSortIcon(dv_sort.state, 'VALUE')}
-                      onClick={() => dv_sort.fns.onToggleSort({ sortKey: 'VALUE' })}
-                    >
-                      {LL.VALUE(0)}
-                    </Button>
-                  </HeaderCell>
-                  <HeaderCell stiff />
-                </HeaderRow>
-              </Header>
-              <Body>
-                {tableList.map((dv: DeviceValue) => (
-                  <Row key={dv.id} item={dv} onClick={() => showDeviceValue(dv)}>
-                    <Cell>{renderNameCell(dv)}</Cell>
-                    <Cell>{formatValue(LL, dv.v, dv.u)}</Cell>
-                    <Cell stiff>
-                      {me.admin &&
-                        dv.c &&
-                        !hasMask(dv.id, DeviceEntityMask.DV_READONLY) && (
-                          <IconButton
-                            size="small"
-                            onClick={() => showDeviceValue(dv)}
-                            style={{ backgroundColor: 'transparent' }}
-                          >
-                            {dv.v === '' ? (
-                              <PlayArrowIcon color="primary" sx={{ fontSize: 16 }} />
-                            ) : (
-                              <EditIcon color="primary" sx={{ fontSize: 16 }} />
-                            )}
-                          </IconButton>
-                        )}
-                    </Cell>
-                  </Row>
-                ))}
-              </Body>
-            </>
-          )}
-        </Table>
-      </Box>
+          <Table
+            data={{ nodes: Array.from(shown_data) }}
+            theme={data_theme}
+            sort={dv_sort}
+            layout={{ custom: true, fixedHeader: true }}
+          >
+            {(tableList: DeviceValue[]) => (
+              <>
+                <Header>
+                  <HeaderRow>
+                    <HeaderCell resize>
+                      <Button
+                        fullWidth
+                        style={{ fontSize: '14px', justifyContent: 'flex-start' }}
+                        endIcon={getSortIcon(dv_sort.state, 'NAME')}
+                        onClick={() => dv_sort.fns.onToggleSort({ sortKey: 'NAME' })}
+                      >
+                        {LL.ENTITY_NAME(0)}
+                      </Button>
+                    </HeaderCell>
+                    <HeaderCell resize>
+                      <Button
+                        fullWidth
+                        style={{ fontSize: '14px', justifyContent: 'flex-end' }}
+                        endIcon={getSortIcon(dv_sort.state, 'VALUE')}
+                        onClick={() =>
+                          dv_sort.fns.onToggleSort({ sortKey: 'VALUE' })
+                        }
+                      >
+                        {LL.VALUE(0)}
+                      </Button>
+                    </HeaderCell>
+                    <HeaderCell stiff />
+                  </HeaderRow>
+                </Header>
+                <Body>
+                  {tableList.map((dv: DeviceValue) => (
+                    <Row key={dv.id} item={dv} onClick={() => showDeviceValue(dv)}>
+                      <Cell>{renderNameCell(dv)}</Cell>
+                      <Cell>{formatValue(LL, dv.v, dv.u)}</Cell>
+                      <Cell stiff>
+                        {me.admin &&
+                          dv.c &&
+                          !hasMask(dv.id, DeviceEntityMask.DV_READONLY) && (
+                            <IconButton
+                              size="small"
+                              onClick={() => showDeviceValue(dv)}
+                              style={{ backgroundColor: 'transparent' }}
+                            >
+                              {dv.v === '' ? (
+                                <PlayArrowIcon
+                                  color="primary"
+                                  sx={{ fontSize: 16 }}
+                                />
+                              ) : (
+                                <EditIcon color="primary" sx={{ fontSize: 16 }} />
+                              )}
+                            </IconButton>
+                          )}
+                      </Cell>
+                    </Row>
+                  ))}
+                </Body>
+              </>
+            )}
+          </Table>
+        </Box>
+      </Dialog>
     );
   };
 

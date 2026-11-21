@@ -65,7 +65,14 @@ const LayoutDrawerComponent = ({ mobileOpen, onClose }: LayoutDrawerProps) => {
         }}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH }
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: DRAWER_WIDTH,
+            backgroundColor: 'background.default',
+            backgroundImage: 'none',
+            borderRight: 1,
+            borderColor: 'divider'
+          }
         }}
       >
         {drawer}
@@ -74,7 +81,14 @@ const LayoutDrawerComponent = ({ mobileOpen, onClose }: LayoutDrawerProps) => {
         variant="permanent"
         sx={{
           display: { xs: 'none', md: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH }
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: DRAWER_WIDTH,
+            backgroundColor: 'background.default',
+            backgroundImage: 'none',
+            borderRight: 1,
+            borderColor: 'divider'
+          }
         }}
         open
       >
