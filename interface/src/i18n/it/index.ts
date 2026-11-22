@@ -746,20 +746,15 @@ const it: Translation = {
   SYS_FAULT_SEARCH: 'Cerca un codice di guasto', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Inserisci il codice e il codice aggiuntivo dal display, ad es. H08, 6A 227 o 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · versione {2} · {3} voci', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Nessuna spiegazione installata per i codici di guasto {0}. Scegli una fonte qui sotto e installale una volta; vengono salvate sul gateway e sono disponibili in ogni browser.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Nessuna spiegazione installata per i codici di guasto {0}. Installa il pacchetto da un file; viene salvato sul gateway ed è disponibile in ogni browser.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Spiegazione non installata', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Installa', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Aggiorna', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Rimuovi', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download non riuscito: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Scarica il pacchetto per il tuo produttore e la tua lingua, poi installalo dal file qui sopra.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Elenco dei pacchetti', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installa da file', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Pacchetti dei codici di guasto', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Indirizzo della fonte', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Mostra pacchetti', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Questa fonte non ha pacchetti.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Spazio libero insufficiente sul gateway.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Questo gateway non può salvare pacchetti di codici di guasto. Servono un firmware più recente e una flash di almeno 16 MB.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Installato', // draft, please review
   SYS_FAULT_NONE: 'Nessun guasto memorizzato.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'fino ad ora', // draft, please review
   SYS_SEV_INFO: 'Messaggio di funzionamento', // draft, please review

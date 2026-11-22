@@ -746,20 +746,15 @@ const sv: Translation = {
   SYS_FAULT_SEARCH: 'Slå upp felkod', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Ange koden och tilläggskoden från displayen, t.ex. H08, 6A 227 eller 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · version {2} · {3} poster', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Inga förklaringar är installerade för {0}-felkoder. Välj en källa nedan och installera dem en gång; de sparas på gatewayen och är tillgängliga i varje webbläsare.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Inga förklaringar är installerade för {0}-felkoder. Installera paketet från en fil; det sparas på gatewayen och är tillgängligt i varje webbläsare.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Förklaring inte installerad', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Installera', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Uppdatera', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Ta bort', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedladdningen misslyckades: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Ladda ner paketet för din tillverkare och ditt språk och installera det sedan från filen ovan.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Lista över paket', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installera från en fil', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Felkodspaket', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Källans adress', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Visa paket', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Den här källan har inga paket.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Inte tillräckligt med ledigt utrymme på gatewayen.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Den här gatewayen kan inte spara felkodspaket. Den behöver nyare firmware och minst 16 MB flash.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Installerad', // draft, please review
   SYS_FAULT_NONE: 'Inget lagrat fel.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'tills nu', // draft, please review
   SYS_SEV_INFO: 'Driftmeddelande', // draft, please review

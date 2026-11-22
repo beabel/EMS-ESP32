@@ -746,20 +746,15 @@ const en: Translation = {
   SYS_FAULT_SEARCH: 'Look up a fault code', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Enter the code and additional code from the display, e.g. H08, 6A 227 or 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · version {2} · {3} entries', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'No explanations installed for {0} fault codes. Choose a source below and install them once; they are stored on the gateway and available in every browser.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'No explanations installed for {0} fault codes. Install the pack from a file; it is stored on the gateway and available in every browser.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Explanation not installed', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Install', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Update', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Remove', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download failed: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Download the pack for your manufacturer and language, then install it from the file above.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'List of packs', // draft, please review
   SYS_FAULT_PACK_FILE: 'Install from a file', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Fault code packs', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Source address', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Show packs', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'This source has no packs.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Not enough free space on the gateway.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'This gateway can\'t store fault code packs. It needs a newer firmware and a flash of at least 16 MB.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Installed', // draft, please review
   SYS_FAULT_NONE: 'No stored fault.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'until now', // draft, please review
   SYS_SEV_INFO: 'Operating message', // draft, please review

@@ -746,20 +746,15 @@ const nl: Translation = {
   SYS_FAULT_SEARCH: 'Storingscode opzoeken', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Voer de code en aanvullende code van het display in, bijv. H08, 6A 227 of 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · versie {2} · {3} items', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Geen uitleg geïnstalleerd voor {0}-storingscodes. Kies hieronder een bron en installeer ze één keer; ze worden op de gateway opgeslagen en zijn in elke browser beschikbaar.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Geen uitleg geïnstalleerd voor {0}-storingscodes. Installeer het pakket uit een bestand; het wordt op de gateway opgeslagen en is in elke browser beschikbaar.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Uitleg niet geïnstalleerd', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Installeren', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Bijwerken', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Verwijderen', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Downloaden mislukt: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Download het pakket voor je fabrikant en taal en installeer het daarna hierboven vanuit het bestand.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Lijst met pakketten', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installeren vanuit een bestand', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Storingscodepakketten', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Adres van de bron', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Pakketten tonen', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Deze bron heeft geen pakketten.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Niet genoeg vrije ruimte op de gateway.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Deze gateway kan geen storingscodepakketten opslaan. Er is nieuwere firmware en minstens 16 MB flash nodig.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Geïnstalleerd', // draft, please review
   SYS_FAULT_NONE: 'Geen opgeslagen storing.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'tot nu', // draft, please review
   SYS_SEV_INFO: 'Bedrijfsmelding', // draft, please review

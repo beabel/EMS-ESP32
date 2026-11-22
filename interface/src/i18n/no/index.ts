@@ -746,20 +746,15 @@ const no: Translation = {
   SYS_FAULT_SEARCH: 'Slå opp feilkode', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Skriv inn koden og tilleggskoden fra displayet, f.eks. H08, 6A 227 eller 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · versjon {2} · {3} oppføringer', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Ingen forklaringer er installert for {0}-feilkoder. Velg en kilde nedenfor og installer dem én gang; de lagres på gatewayen og er tilgjengelige i alle nettlesere.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Ingen forklaringer er installert for {0}-feilkoder. Installer pakken fra en fil; den lagres på gatewayen og er tilgjengelig i alle nettlesere.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Forklaring ikke installert', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Installer', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Oppdater', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Fjern', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedlasting mislyktes: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Last ned pakken for din produsent og ditt språk, og installer den deretter fra filen ovenfor.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Liste over pakker', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installer fra en fil', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Feilkodepakker', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Kildeadresse', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Vis pakker', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Denne kilden har ingen pakker.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Ikke nok ledig plass på gatewayen.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Denne gatewayen kan ikke lagre feilkodepakker. Den trenger nyere firmware og minst 16 MB flash.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Installert', // draft, please review
   SYS_FAULT_NONE: 'Ingen lagret feil.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'til nå', // draft, please review
   SYS_SEV_INFO: 'Driftsmelding', // draft, please review

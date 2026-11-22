@@ -1,6 +1,6 @@
 // Fault code packs (see faults/README.md): the explanations of a manufacturer's fault codes, one file per
 // brand and language. They are stored on the gateway, so every browser sees them, also without internet.
-// The browser downloads a pack from a source the user chooses and uploads it to the gateway.
+// A pack is installed from a file; the Web UI validates it, compresses it and uploads it to the gateway.
 import { useEffect, useSyncExternalStore } from 'react';
 
 import {
@@ -12,28 +12,11 @@ import {
 import type { FaultPacksData } from '../../api/app';
 import type { FaultPack, Severity } from './faultLookup';
 
-// where the packs come from unless the user chooses another source
-export const DEFAULT_SOURCE =
-  'https://raw.githubusercontent.com/emsesp/EMS-ESP32/dev/faults/index.json';
+// a page that lists the packs that can be downloaded
+export const FAULT_PACK_LIST_URL =
+  'https://github.com/emsesp/EMS-ESP32/tree/dev/faults';
 
-const SOURCE_KEY = 'emsesp-fault-source';
-const FETCH_TIMEOUT_MS = 15000;
 const MAX_FILE_BYTES = 2_000_000; // uncompressed
-
-export interface IndexPack {
-  brand: string;
-  lang: string;
-  version: string;
-  entries: number;
-  size: number;
-  file: string;
-}
-
-export interface SourceIndex {
-  url: string;
-  name: string;
-  packs: IndexPack[];
-}
 
 // ----- validation of what comes from a source -----
 
@@ -82,80 +65,6 @@ export const isFaultPack = (p: unknown): p is FaultPack => {
       SEVERITIES.includes(c.severity as Severity)
   );
   return classesOk && p.codes.every(isCode);
-};
-
-const isIndex = (p: unknown): boolean =>
-  isObject(p) &&
-  p.format === 1 &&
-  Array.isArray(p.packs) &&
-  p.packs.every(
-    (e) =>
-      isObject(e) &&
-      typeof e.brand === 'string' &&
-      NAME.test(e.brand) &&
-      typeof e.lang === 'string' &&
-      NAME.test(e.lang) &&
-      typeof e.version === 'string' &&
-      VERSION.test(e.version) &&
-      typeof e.file === 'string'
-  );
-
-// plain http only inside the local network, packs from the internet have to come over https
-const isLocalHost = (h: string): boolean =>
-  h === 'localhost' ||
-  h.endsWith('.local') ||
-  /^(127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(h);
-
-const checkUrl = (value: string): URL => {
-  const url = new URL(value);
-  if (
-    url.protocol !== 'https:' &&
-    !(url.protocol === 'http:' && isLocalHost(url.hostname))
-  ) {
-    throw new Error('use an https address');
-  }
-  return url;
-};
-
-const fetchJson = async (url: URL): Promise<unknown> => {
-  const response = await fetch(url, {
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const text = await response.text();
-  if (text.length > MAX_FILE_BYTES) throw new Error('file too large');
-  return JSON.parse(text) as unknown;
-};
-
-// ----- the chosen source -----
-
-export const getSource = (): string => {
-  try {
-    return localStorage.getItem(SOURCE_KEY) || DEFAULT_SOURCE;
-  } catch {
-    return DEFAULT_SOURCE;
-  }
-};
-
-export const setSource = (value: string): void => {
-  try {
-    if (value && value !== DEFAULT_SOURCE) localStorage.setItem(SOURCE_KEY, value);
-    else localStorage.removeItem(SOURCE_KEY);
-  } catch {
-    // the page works without remembering it
-  }
-};
-
-export const loadIndex = async (source: string): Promise<SourceIndex> => {
-  const url = checkUrl(source.trim());
-  const data = await fetchJson(url);
-  if (!isIndex(data)) throw new Error('not a fault code pack source');
-  const index = data as { name?: unknown; packs: IndexPack[] };
-  return {
-    url: url.href,
-    name: typeof index.name === 'string' ? index.name : url.hostname,
-    packs: index.packs
-  };
 };
 
 // ----- installed on the gateway -----
@@ -284,19 +193,6 @@ const uploadPack = async (data: unknown): Promise<void> => {
   );
   store.packs.clear();
   await refreshInstalled();
-};
-
-// downloads the pack of an entry of the source index and stores it on the gateway
-export const installPack = async (
-  index: SourceIndex,
-  entry: IndexPack
-): Promise<void> => {
-  const url = checkUrl(new URL(entry.file, index.url).href);
-  const data = await fetchJson(url);
-  if (!isFaultPack(data) || data.brand !== entry.brand || data.lang !== entry.lang) {
-    throw new Error('not a valid fault code pack');
-  }
-  await uploadPack(data);
 };
 
 // installs a pack from a file on the user's computer

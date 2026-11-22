@@ -746,20 +746,15 @@ const hu: Translation = {
   SYS_FAULT_SEARCH: 'Hibakód keresése', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Add meg a kijelzőn látható kódot és kiegészítő kódot, pl. H08, 6A 227 vagy 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · verzió {2} · {3} bejegyzés', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'A(z) {0} hibakódok magyarázatai nincsenek telepítve. Válasszon alább egy forrást, és telepítse egyszer; az átjárón tárolódnak, és minden böngészőben elérhetők.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'A(z) {0} hibakódok magyarázatai nincsenek telepítve. Telepítse a csomagot fájlból; az átjárón tárolódik, és minden böngészőben elérhető.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'A magyarázat nincs telepítve', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Telepítés', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Frissítés', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Eltávolítás', // draft, please review
   SYS_FAULT_PACK_ERROR: 'A letöltés sikertelen: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Töltse le a gyártójának és nyelvének megfelelő csomagot, majd telepítse fentről a fájlból.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Csomagok listája', // draft, please review
   SYS_FAULT_PACK_FILE: 'Telepítés fájlból', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Hibakód-csomagok', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'A forrás címe', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Csomagok megjelenítése', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Ennek a forrásnak nincsenek csomagjai.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Nincs elég szabad hely az átjárón.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Ez az átjáró nem tud hibakód-csomagokat tárolni. Újabb firmware és legalább 16 MB flash szükséges.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Telepítve', // draft, please review
   SYS_FAULT_NONE: 'Nincs tárolt hiba.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'mostanáig', // draft, please review
   SYS_SEV_INFO: 'Üzemi üzenet', // draft, please review

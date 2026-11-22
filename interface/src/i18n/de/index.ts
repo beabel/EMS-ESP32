@@ -746,20 +746,15 @@ const de: Translation = {
   SYS_FAULT_SEARCH: 'Fehlercode nachschlagen', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Code und Zusatzcode vom Display eingeben, z. B. H08, 6A 227 oder 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · Version {2} · {3} Einträge', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Keine Erklärungen für {0}-Fehlercodes installiert. Unten eine Quelle wählen und einmal installieren; sie werden im Gateway gespeichert und stehen in jedem Browser zur Verfügung.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Keine Erklärungen für {0}-Fehlercodes installiert. Das Paket aus einer Datei installieren; es wird im Gateway gespeichert und steht in jedem Browser zur Verfügung.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Erklärung nicht installiert', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Installieren', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Aktualisieren', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Entfernen', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download fehlgeschlagen: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Das Paket für deinen Hersteller und deine Sprache herunterladen und dann oben aus der Datei installieren.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Liste der Pakete', // draft, please review
   SYS_FAULT_PACK_FILE: 'Aus einer Datei installieren', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Fehlercode-Pakete', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Adresse der Quelle', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Pakete anzeigen', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Diese Quelle hat keine Pakete.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Nicht genug freier Platz im Gateway.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Dieses Gateway kann keine Fehlercode-Pakete speichern. Es braucht eine neuere Firmware und mindestens 16 MB Flash.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Installiert', // draft, please review
   SYS_FAULT_NONE: 'Keine gespeicherte Störung.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'bis jetzt', // draft, please review
   SYS_SEV_INFO: 'Betriebsmeldung', // draft, please review

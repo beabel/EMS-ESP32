@@ -746,20 +746,15 @@ const cs: Translation = {
   SYS_FAULT_SEARCH: 'Vyhledat kód poruchy', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Zadejte kód a doplňkový kód z displeje, např. H08, 6A 227 nebo 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · verze {2} · {3} záznamů', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Pro chybové kódy {0} nejsou nainstalována žádná vysvětlení. Níže vyberte zdroj a nainstalujte je jednou; uloží se v bráně a budou k dispozici v každém prohlížeči.', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Pro chybové kódy {0} nejsou nainstalována žádná vysvětlení. Nainstalujte balíček ze souboru; uloží se v bráně a bude k dispozici v každém prohlížeči.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Vysvětlení není nainstalováno', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Nainstalovat', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Aktualizovat', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odebrat', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Stažení se nezdařilo: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Stáhněte balíček pro svého výrobce a jazyk a nainstalujte jej výše ze souboru.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Seznam balíčků', // draft, please review
   SYS_FAULT_PACK_FILE: 'Nainstalovat ze souboru', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Balíčky chybových kódů', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Adresa zdroje', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Zobrazit balíčky', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Tento zdroj nemá žádné balíčky.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'V bráně není dost volného místa.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Tato brána nemůže ukládat balíčky chybových kódů. Potřebuje novější firmware a flash alespoň 16 MB.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Nainstalováno', // draft, please review
   SYS_FAULT_NONE: 'Žádná uložená porucha.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'do nynějška', // draft, please review
   SYS_SEV_INFO: 'Provozní hlášení', // draft, please review

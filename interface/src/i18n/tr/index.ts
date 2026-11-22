@@ -746,20 +746,15 @@ const tr: Translation = {
   SYS_FAULT_SEARCH: 'Arıza kodu ara', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Ekrandaki kodu ve ek kodu girin, örn. H08, 6A 227 veya 1018.', // draft, please review
   SYS_FAULT_SOURCE: '{0} · {1} · sürüm {2} · {3} kayıt', // draft, please review
-  SYS_FAULT_PACK_MISSING: '{0} arıza kodları için yüklü açıklama yok. Aşağıdan bir kaynak seçip bir kez yükleyin; ağ geçidinde saklanır ve her tarayıcıda kullanılabilir.', // draft, please review
+  SYS_FAULT_PACK_MISSING: '{0} arıza kodları için yüklü açıklama yok. Paketi bir dosyadan yükleyin; ağ geçidinde saklanır ve her tarayıcıda kullanılabilir.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Açıklama yüklü değil', // draft, please review
-  SYS_FAULT_PACK_INSTALL: 'Yükle', // draft, please review
-  SYS_FAULT_PACK_UPDATE: 'Güncelle', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Kaldır', // draft, please review
   SYS_FAULT_PACK_ERROR: 'İndirme başarısız: {0}', // draft, please review
+  SYS_FAULT_PACK_HELP: 'Üreticiniz ve diliniz için paketi indirin, ardından yukarıdaki dosyadan yükleyin.', // draft, please review
+  SYS_FAULT_PACK_DOWNLOAD: 'Paket listesi', // draft, please review
   SYS_FAULT_PACK_FILE: 'Dosyadan yükle', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Arıza kodu paketleri', // draft, please review
-  SYS_FAULT_PACK_SOURCE: 'Kaynak adresi', // draft, please review
-  SYS_FAULT_PACK_LIST: 'Paketleri göster', // draft, please review
-  SYS_FAULT_PACK_EMPTY: 'Bu kaynakta paket yok.', // draft, please review
-  SYS_FAULT_PACK_FULL: 'Ağ geçidinde yeterli boş alan yok.', // draft, please review
   SYS_FAULT_PACK_UNSUPPORTED: 'Bu ağ geçidi arıza kodu paketlerini saklayamaz. Daha yeni bir yazılım ve en az 16 MB flash gerekir.', // draft, please review
-  SYS_FAULT_PACK_INSTALLED: 'Yüklü', // draft, please review
   SYS_FAULT_NONE: 'Kayıtlı arıza yok.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'şimdiye kadar', // draft, please review
   SYS_SEV_INFO: 'Çalışma mesajı', // draft, please review
