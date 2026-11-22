@@ -750,6 +750,7 @@ const pl: BaseTranslation = {
   SYS_FAULT_PACK_SHORT: 'Objaśnienie nie jest zainstalowane', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Usuń', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Pobieranie nie powiodło się: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Objaśnienia pochodzą z pakietu i są udostępniane bez gwarancji poprawności i kompletności. Korzystasz z nich na własne ryzyko; stosuj się do dokumentacji produktu.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Pobierz pakiet dla swojego producenta i języka, a następnie zainstaluj go powyżej z pliku.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Lista pakietów', // draft, please review
   SYS_FAULT_PACK_FILE: 'Zainstaluj z pliku', // draft, please review

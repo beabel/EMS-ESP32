@@ -67,14 +67,16 @@ const toEntry = (pack: FaultPack, row: FaultCode): FaultEntry => {
   };
 };
 
-export const findFault = (
+// all entries of a code: a code can have several, e.g. for different variants of a product
+export const findFaults = (
   pack: FaultPack,
   code: string,
   add: number | null
-): FaultEntry | null => {
+): FaultEntry[] => {
   const c = normalize(code);
-  const row = pack.codes.find((r) => r[0].toUpperCase() === c && r[1] === add);
-  return row ? toEntry(pack, row) : null;
+  return pack.codes
+    .filter((r) => r[0].toUpperCase() === c && r[1] === add)
+    .map((r) => toEntry(pack, r));
 };
 
 export interface ParsedCode {

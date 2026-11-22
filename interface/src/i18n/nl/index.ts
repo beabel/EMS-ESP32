@@ -750,6 +750,7 @@ const nl: Translation = {
   SYS_FAULT_PACK_SHORT: 'Uitleg niet geïnstalleerd', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Verwijderen', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Downloaden mislukt: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'De uitleg komt uit het pakket en wordt zonder enige garantie op juistheid of volledigheid geleverd. Gebruik is op eigen risico; volg de documentatie van je product.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Download het pakket voor je fabrikant en taal en installeer het daarna hierboven vanuit het bestand.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Lijst met pakketten', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installeren vanuit een bestand', // draft, please review

@@ -750,6 +750,7 @@ const no: Translation = {
   SYS_FAULT_PACK_SHORT: 'Forklaring ikke installert', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Fjern', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedlasting mislyktes: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Forklaringene kommer fra pakken og leveres uten garanti for at de er riktige eller fullstendige. Bruk skjer på eget ansvar; følg dokumentasjonen til produktet ditt.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Last ned pakken for din produsent og ditt språk, og installer den deretter fra filen ovenfor.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Liste over pakker', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installer fra en fil', // draft, please review

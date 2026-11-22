@@ -96,6 +96,9 @@ export const FaultPackManager = ({ missing }: { missing: readonly string[] }) =>
       )}
 
       <p className="sys-sub" style={{ margin: '8px 0 0' }}>
+        {LL.SYS_FAULT_PACK_DISCLAIMER()}
+      </p>
+      <p className="sys-sub" style={{ margin: '8px 0 0' }}>
         {LL.SYS_FAULT_PACK_HELP()}{' '}
         <a href={FAULT_PACK_LIST_URL} target="_blank" rel="noopener noreferrer">
           {LL.SYS_FAULT_PACK_DOWNLOAD()}

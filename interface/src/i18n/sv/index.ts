@@ -750,6 +750,7 @@ const sv: Translation = {
   SYS_FAULT_PACK_SHORT: 'Förklaring inte installerad', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Ta bort', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedladdningen misslyckades: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Förklaringarna kommer från paketet och lämnas utan garanti för att de är korrekta eller fullständiga. Användning sker på egen risk; följ produktens dokumentation.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Ladda ner paketet för din tillverkare och ditt språk och installera det sedan från filen ovan.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Lista över paket', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installera från en fil', // draft, please review

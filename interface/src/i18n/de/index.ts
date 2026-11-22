@@ -750,6 +750,7 @@ const de: Translation = {
   SYS_FAULT_PACK_SHORT: 'Erklärung nicht installiert', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Entfernen', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download fehlgeschlagen: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Die Erklärungen stammen aus dem Paket und werden ohne Gewähr auf Richtigkeit und Vollständigkeit bereitgestellt. Die Nutzung erfolgt auf eigene Verantwortung; beachte die Dokumentation deines Produkts.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Das Paket für deinen Hersteller und deine Sprache herunterladen und dann oben aus der Datei installieren.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Liste der Pakete', // draft, please review
   SYS_FAULT_PACK_FILE: 'Aus einer Datei installieren', // draft, please review

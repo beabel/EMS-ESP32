@@ -34,8 +34,9 @@ gateway and GitHub's API, so a pack comes from a file the user picked.
 
 ## 3. Publishing packs
 
-A pack is a plain file, so a list of packs can be any web page, a folder in a repository (this one,
-`faults/`, is such a list) or a download area. Name the files `<brand>.<lang>.json`.
+A pack is a plain file, so a list of packs can be any web page, a folder in a repository or a download area.
+Name the files `<brand>.<lang>.json`. The packs published together with this specification are in
+https://github.com/beabel/EMS-ESP-faultcodes, which also has a script that checks a pack against this format.
 
 ## 4. Pack file
 
@@ -47,6 +48,7 @@ A pack is a plain file, so a list of packs can be any web page, a folder in a re
   "version": "2026-11-22",
   "source": "where the explanations come from",
   "license": "license of the text",
+  "notice": "optional, e.g. a disclaimer",
   "applies": { "unbranded_with_boiler": true },
   "classes": {
     "14": { "title": "Class title", "meaning": "What the class means", "severity": "warn" }
@@ -60,7 +62,8 @@ A pack is a plain file, so a list of packs can be any web page, a folder in a re
 - `brand`: lower case, exactly as the devices report their brand (e.g. `buderus`).
 - `lang`: the language code of the Web UI (`en`, `de`, `fr`, `nl`, ...).
 - `version`: any string that sorts by date, shown to the user, used to offer updates.
-- `source` and `license` are required, so the origin of the texts is always visible.
+- `source` and `license` are required, so the origin of the texts is always visible. `notice` is optional text
+  for the reader, for example that the explanations come without a guarantee.
 - `applies.unbranded_with_boiler`: also use the pack for devices without a brand (e.g. a controller) in a
   system whose boiler has this brand.
 - `classes`: fault classes with a **severity**: `info`, `service`, `warn`, `error` or `unknown`.

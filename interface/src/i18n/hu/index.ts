@@ -750,6 +750,7 @@ const hu: Translation = {
   SYS_FAULT_PACK_SHORT: 'A magyarázat nincs telepítve', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Eltávolítás', // draft, please review
   SYS_FAULT_PACK_ERROR: 'A letöltés sikertelen: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'A magyarázatok a csomagból származnak, és a helyességükre és teljességükre nincs garancia. A felhasználás saját felelősségre történik; kövesse a termék dokumentációját.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Töltse le a gyártójának és nyelvének megfelelő csomagot, majd telepítse fentről a fájlból.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Csomagok listája', // draft, please review
   SYS_FAULT_PACK_FILE: 'Telepítés fájlból', // draft, please review

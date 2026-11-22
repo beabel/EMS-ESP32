@@ -750,6 +750,7 @@ const sk: Translation = {
   SYS_FAULT_PACK_SHORT: 'Vysvetlenie nie je nainštalované', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odstrániť', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Sťahovanie zlyhalo: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Vysvetlenia pochádzajú z balíčka a sú poskytované bez záruky správnosti a úplnosti. Použitie je na vlastné riziko; riaďte sa dokumentáciou svojho produktu.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Stiahnite balíček pre svojho výrobcu a jazyk a nainštalujte ho vyššie zo súboru.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Zoznam balíčkov', // draft, please review
   SYS_FAULT_PACK_FILE: 'Nainštalovať zo súboru', // draft, please review

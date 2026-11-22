@@ -750,6 +750,7 @@ const it: Translation = {
   SYS_FAULT_PACK_SHORT: 'Spiegazione non installata', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Rimuovi', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download non riuscito: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Le spiegazioni provengono dal pacchetto e sono fornite senza alcuna garanzia di correttezza o completezza. L\'uso è a proprio rischio; segui la documentazione del tuo prodotto.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Scarica il pacchetto per il tuo produttore e la tua lingua, poi installalo dal file qui sopra.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Elenco dei pacchetti', // draft, please review
   SYS_FAULT_PACK_FILE: 'Installa da file', // draft, please review

@@ -750,6 +750,7 @@ const cs: Translation = {
   SYS_FAULT_PACK_SHORT: 'Vysvětlení není nainstalováno', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odebrat', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Stažení se nezdařilo: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Vysvětlení pocházejí z balíčku a jsou poskytována bez záruky správnosti a úplnosti. Použití je na vlastní nebezpečí; řiďte se dokumentací svého produktu.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Stáhněte balíček pro svého výrobce a jazyk a nainstalujte jej výše ze souboru.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Seznam balíčků', // draft, please review
   SYS_FAULT_PACK_FILE: 'Nainstalovat ze souboru', // draft, please review

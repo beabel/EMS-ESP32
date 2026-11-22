@@ -750,6 +750,7 @@ const tr: Translation = {
   SYS_FAULT_PACK_SHORT: 'Açıklama yüklü değil', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Kaldır', // draft, please review
   SYS_FAULT_PACK_ERROR: 'İndirme başarısız: {0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: 'Açıklamalar paketten gelir ve doğruluk veya eksiksizlik konusunda hiçbir garanti verilmeden sunulur. Kullanım kendi sorumluluğunuzdadır; ürününüzün belgelerine uyun.', // draft, please review
   SYS_FAULT_PACK_HELP: 'Üreticiniz ve diliniz için paketi indirin, ardından yukarıdaki dosyadan yükleyin.', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: 'Paket listesi', // draft, please review
   SYS_FAULT_PACK_FILE: 'Dosyadan yükle', // draft, please review

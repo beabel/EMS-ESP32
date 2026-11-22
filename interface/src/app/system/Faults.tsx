@@ -5,7 +5,7 @@ import type { TagKind } from 'components/ui';
 import { useI18nContext } from 'i18n/i18n-react';
 
 import { FaultPackManager, brandName } from './FaultPackManager';
-import { findFault, packApplies, parseLastCode, searchFaults } from './faultLookup';
+import { findFaults, packApplies, parseLastCode, searchFaults } from './faultLookup';
 import type { FaultEntry, Severity } from './faultLookup';
 import { useFaultPacks } from './faultPacks';
 import { findItem, str } from './model';
@@ -33,7 +33,8 @@ export interface FaultCardData {
   add: number | null;
   span: string;
   state: FaultState;
-  entry: FaultEntry | null;
+  entry: FaultEntry | null; // the first entry, sets the severity
+  entries: FaultEntry[]; // all entries of the code
 }
 
 // the fault codes the devices report, explained from the pack of the device's brand. The same code can mean
@@ -79,7 +80,7 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     const b = brandOf(item);
     const pack = b ? packs[b] : null;
     let state: FaultState;
-    let entry: FaultEntry | null = null;
+    let entries: FaultEntry[] = [];
     if (!b) {
       state = 'raw';
     } else if (!info) {
@@ -90,10 +91,18 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     } else if (!packApplies(pack, item.brand, boilerBrand)) {
       state = 'raw';
     } else {
-      entry = findFault(pack, code, nr);
-      state = entry ? 'entry' : 'unknown';
+      entries = findFaults(pack, code, nr);
+      state = entries.length > 0 ? 'entry' : 'unknown';
     }
-    cards.push({ kind, code, add: nr, span, state, entry });
+    cards.push({
+      kind,
+      code,
+      add: nr,
+      span,
+      state,
+      entry: entries[0] ?? null,
+      entries
+    });
   };
 
   for (const kind of ['last', 'ctrl'] as const) {
@@ -181,7 +190,12 @@ const FaultCard = ({ data }: { data: FaultCardData }) => {
       {data.state === 'unknown' && (
         <div className="sys-fault-title">{LL.SYS_FAULT_UNKNOWN()}</div>
       )}
-      {e && <FaultBody entry={e} />}
+      {data.entries.map((x, i) => (
+        <div key={i}>
+          {i > 0 && <hr />}
+          <FaultBody entry={x} />
+        </div>
+      ))}
     </div>
   );
 };
@@ -230,7 +244,8 @@ export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
                     add: e.add,
                     span: '',
                     state: 'entry',
-                    entry: e
+                    entry: e,
+                    entries: [e]
                   }}
                 />
               </div>

@@ -750,6 +750,7 @@ const zh: Translation = {
   SYS_FAULT_PACK_SHORT: '说明未安装', // draft, please review
   SYS_FAULT_PACK_REMOVE: '移除', // draft, please review
   SYS_FAULT_PACK_ERROR: '下载失败：{0}', // draft, please review
+  SYS_FAULT_PACK_DISCLAIMER: '说明来自代码包，不保证其准确或完整。使用风险自负，请遵循您产品的文档。', // draft, please review
   SYS_FAULT_PACK_HELP: '下载适合您的制造商和语言的代码包，然后从上方的文件安装。', // draft, please review
   SYS_FAULT_PACK_DOWNLOAD: '代码包列表', // draft, please review
   SYS_FAULT_PACK_FILE: '从文件安装', // draft, please review
