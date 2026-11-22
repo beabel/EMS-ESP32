@@ -239,6 +239,7 @@ void WebFaultPackService::handleUpload(AsyncWebServerRequest * request, const St
         const AsyncWebParameter * lang  = request->getParam("lang");
         const AsyncWebParameter * ver   = request->getParam("version");
         if (!brand || !lang || !ver || !validName(brand->value().c_str()) || !validName(lang->value().c_str()) || !validVersion(ver->value().c_str())) {
+            EMSESP::logger().err("Fault code pack upload: brand, language or version missing or not valid");
             uploadError(request, 400);
             return;
         }
@@ -319,18 +320,28 @@ void WebFaultPackService::uploadComplete(AsyncWebServerRequest * request) {
         return;
     }
     if (!request->_tempFile) {
+        EMSESP::logger().err("Fault code pack upload: no file received");
         request->send(400);
         return;
     }
 
-    const size_t size = request->_tempFile.size();
+    // the size of the written file, read after closing it
     request->_tempFile.close();
+    size_t size = 0;
+    {
+        File written = LittleFS.open(EMSESP_FAULTPACK_TEMP_FILE, "r");
+        if (written) {
+            size = written.size();
+            written.close();
+        }
+    }
 
     const AsyncWebParameter * brand   = request->getParam("brand");
     const AsyncWebParameter * lang    = request->getParam("lang");
     const AsyncWebParameter * ver     = request->getParam("version");
     const AsyncWebParameter * entries = request->getParam("entries");
     if (!brand || !lang || !ver || size == 0) {
+        EMSESP::logger().err("Fault code pack upload: missing details or empty file (%u bytes)", static_cast<unsigned>(size));
         LittleFS.remove(EMSESP_FAULTPACK_TEMP_FILE);
         request->send(400);
         return;
