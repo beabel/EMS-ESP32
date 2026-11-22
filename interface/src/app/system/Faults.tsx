@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
-import { SearchField, Tag } from 'components/ui';
+import { Button, SearchField, Tag } from 'components/ui';
 import type { TagKind } from 'components/ui';
 import { useI18nContext } from 'i18n/i18n-react';
 
@@ -8,11 +8,11 @@ import {
   FAULT_DB_BRAND,
   faultDbApplies,
   findFault,
-  loadFaultDb,
   parseLastCode,
   searchFaults
 } from './faultLookup';
-import type { FaultDb, FaultEntry, Severity } from './faultLookup';
+import type { FaultEntry, Severity } from './faultLookup';
+import { installPack, removePack, useFaultPack } from './faultPacks';
 import { findItem, str } from './model';
 import type { SysItem } from './model';
 
@@ -31,6 +31,8 @@ export interface FaultCardData {
   span: string;
   // interpretation allowed: only for devices of the brand Buderus
   applies: boolean;
+  // the pack of the brand is installed, so a missing entry really is unknown
+  packReady: boolean;
   entry: FaultEntry | null;
 }
 
@@ -42,7 +44,7 @@ const isBuderusBoiler = (i: SysItem): boolean =>
 // another brand only shows its raw code.
 export const useFaultCards = (items: readonly SysItem[]) => {
   const hasBuderus = items.some(isBuderusBoiler);
-  const [db, setDb] = useState<FaultDb | null>(null);
+  const db = useFaultPack(FAULT_DB_BRAND);
 
   const sources = useMemo(
     () => ({
@@ -54,13 +56,10 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     [items]
   );
 
-  const needDb = [sources.last, sources.ctrl, sources.service].some(
+  // the explanations are used for a device when the pack of its brand is installed
+  const applicable = [sources.last, sources.ctrl, sources.service].some(
     (i) => i && faultDbApplies(i.brand, hasBuderus)
   );
-
-  useEffect(() => {
-    if (needDb && !db) void loadFaultDb().then(setDb);
-  }, [needDb, db]);
 
   const cards: FaultCardData[] = [];
   const add = (
@@ -78,6 +77,7 @@ export const useFaultCards = (items: readonly SysItem[]) => {
       add: nr,
       span,
       applies,
+      packReady: !!db,
       entry: applies && db && nr ? findFault(db, code, nr) : null
     });
   };
@@ -92,7 +92,7 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     const nr = Number(sources.serviceNr?.dv.v);
     add('service', sources.service, code, nr > 0 ? nr : null, '');
   }
-  return { cards, db, hasBuderus };
+  return { cards, db, hasBuderus, packMissing: applicable && !db };
 };
 
 const FaultBody = ({ entry }: { entry: FaultEntry }) => {
@@ -159,7 +159,7 @@ const FaultCard = ({ data }: { data: FaultCardData }) => {
         </small>
       </div>
       {!data.applies && <p>{LL.SYS_FAULT_RAW_ONLY()}</p>}
-      {data.applies && !e && data.add !== null && (
+      {data.applies && !e && data.add !== null && data.packReady && (
         <div className="sys-fault-title">{LL.SYS_FAULT_UNKNOWN()}</div>
       )}
       {e && <FaultBody entry={e} />}
@@ -172,12 +172,56 @@ export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
   const { LL } = useI18nContext();
   const { cards, db, hasBuderus } = useFaultCards(items);
   const [q, setQ] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const install = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      await installPack(FAULT_DB_BRAND);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(false);
+    }
+  };
   const results = db && q.trim() ? searchFaults(db, q) : [];
   return (
     <>
+      {hasBuderus && !db && (
+        <div className="sys-fault">
+          <p>{LL.SYS_FAULT_PACK_MISSING()}</p>
+          <p>
+            <Button icon="download" disabled={busy} onClick={() => void install()}>
+              {LL.SYS_FAULT_PACK_INSTALL()}
+            </Button>
+          </p>
+          {error && <p>{LL.SYS_FAULT_PACK_ERROR(error)}</p>}
+        </div>
+      )}
       {hasBuderus && db && (
         <p className="sys-sub" style={{ margin: '0 0 8px' }}>
-          {LL.SYS_FAULT_SOURCE(db.codes.length)}
+          {LL.SYS_FAULT_SOURCE(db.version, db.codes.length)}{' '}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              void install();
+            }}
+          >
+            {LL.SYS_FAULT_PACK_UPDATE()}
+          </a>
+          {' · '}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              removePack(FAULT_DB_BRAND);
+            }}
+          >
+            {LL.SYS_FAULT_PACK_REMOVE()}
+          </a>
+          {error && ` · ${LL.SYS_FAULT_PACK_ERROR(error)}`}
         </p>
       )}
       {cards.length === 0 && (
@@ -188,7 +232,7 @@ export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
       {cards.map((c) => (
         <FaultCard key={c.kind} data={c} />
       ))}
-      {hasBuderus && (
+      {hasBuderus && db && (
         <div className="sys-fault">
           <div className="sys-fault-head">{LL.SYS_FAULT_SEARCH()}</div>
           <p>
@@ -212,6 +256,7 @@ export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
                   add: e.add,
                   span: '',
                   applies: true,
+                  packReady: true,
                   entry: e
                 }}
               />

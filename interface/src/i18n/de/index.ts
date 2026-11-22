@@ -745,7 +745,13 @@ const de: Translation = {
   SYS_FAULT_RAW_ONLY: 'Keine Deutung möglich: Die Fehlerdatenbank gilt nur für Buderus-Geräte.', // draft, please review
   SYS_FAULT_SEARCH: 'Fehlercode nachschlagen', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Code und Zusatzcode vom Display eingeben, z. B. H08, 6A 227 oder 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus-Fehlerdatenbank · {0} Einträge · gilt nur für Buderus-Geräte', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus-Fehlerdatenbank · {0} · {1} Einträge · gilt nur für Buderus-Geräte', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Die Erklärungen zu den Buderus-Fehlercodes sind nicht installiert. Einmal herunterladen (ca. 43 KB), um zu sehen, was ein Code bedeutet.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Erklärung nicht installiert', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Installieren', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Aktualisieren', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Entfernen', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Download fehlgeschlagen: {0}', // draft, please review
   SYS_FAULT_NONE: 'Keine gespeicherte Störung.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'bis jetzt', // draft, please review
   SYS_SEV_INFO: 'Betriebsmeldung', // draft, please review

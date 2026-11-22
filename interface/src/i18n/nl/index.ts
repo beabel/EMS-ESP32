@@ -745,7 +745,13 @@ const nl: Translation = {
   SYS_FAULT_RAW_ONLY: 'Geen uitleg beschikbaar: de storingsdatabase geldt alleen voor Buderus-apparaten.', // draft, please review
   SYS_FAULT_SEARCH: 'Storingscode opzoeken', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Voer de code en aanvullende code van het display in, bijv. H08, 6A 227 of 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus-storingsdatabase · {0} items · geldt alleen voor Buderus-apparaten', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus-storingsdatabase · {0} · {1} items · geldt alleen voor Buderus-apparaten', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'De uitleg van de Buderus-storingscodes is niet geïnstalleerd. Download hem één keer (ca. 43 KB) om te zien wat een code betekent.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Uitleg niet geïnstalleerd', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Installeren', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Bijwerken', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Verwijderen', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Downloaden mislukt: {0}', // draft, please review
   SYS_FAULT_NONE: 'Geen opgeslagen storing.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'tot nu', // draft, please review
   SYS_SEV_INFO: 'Bedrijfsmelding', // draft, please review

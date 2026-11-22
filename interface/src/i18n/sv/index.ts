@@ -745,7 +745,13 @@ const sv: Translation = {
   SYS_FAULT_RAW_ONLY: 'Ingen tolkning tillgänglig: felkodsdatabasen gäller bara Buderus-enheter.', // draft, please review
   SYS_FAULT_SEARCH: 'Slå upp felkod', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Ange koden och tilläggskoden från displayen, t.ex. H08, 6A 227 eller 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus felkodsdatabas · {0} poster · gäller bara Buderus-enheter', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus felkodsdatabas · {0} · {1} poster · gäller bara Buderus-enheter', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Förklaringarna till Buderus felkoder är inte installerade. Ladda ner dem en gång (ca 43 KB) för att se vad en kod betyder.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Förklaring inte installerad', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Installera', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Uppdatera', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Ta bort', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Nedladdningen misslyckades: {0}', // draft, please review
   SYS_FAULT_NONE: 'Inget lagrat fel.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'tills nu', // draft, please review
   SYS_SEV_INFO: 'Driftmeddelande', // draft, please review

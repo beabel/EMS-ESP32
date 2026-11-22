@@ -745,7 +745,13 @@ const no: Translation = {
   SYS_FAULT_RAW_ONLY: 'Ingen tolkning tilgjengelig: feildatabasen gjelder bare for Buderus-enheter.', // draft, please review
   SYS_FAULT_SEARCH: 'Slå opp feilkode', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Skriv inn koden og tilleggskoden fra displayet, f.eks. H08, 6A 227 eller 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus feildatabase · {0} oppføringer · gjelder bare Buderus-enheter', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus feildatabase · {0} · {1} oppføringer · gjelder bare Buderus-enheter', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Forklaringene til Buderus-feilkodene er ikke installert. Last dem ned én gang (ca. 43 KB) for å se hva en kode betyr.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Forklaring ikke installert', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Installer', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Oppdater', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Fjern', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Nedlasting mislyktes: {0}', // draft, please review
   SYS_FAULT_NONE: 'Ingen lagret feil.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'til nå', // draft, please review
   SYS_SEV_INFO: 'Driftsmelding', // draft, please review

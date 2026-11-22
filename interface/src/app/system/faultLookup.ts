@@ -1,4 +1,4 @@
-// Looking up fault codes in the Buderus fault database.
+// Looking up fault codes in a fault code pack (see faultPacks.ts).
 // IMPORTANT: The same code can mean something completely different for another manufacturer.
 // The explanation may therefore only be used for devices of the brand Buderus (faultDbApplies).
 
@@ -18,16 +18,6 @@ export interface FaultEntry {
 export type FaultDb = {
   classes: Record<string, [string, string]>;
   codes: [string, number, string, string, string, string][];
-};
-
-let dbPromise: Promise<FaultDb> | undefined;
-
-// The database (~350 KB) is a separate chunk that is loaded only when it is needed
-export const loadFaultDb = (): Promise<FaultDb> => {
-  dbPromise ??= import('./faultdb.json').then(
-    (m) => m.default as unknown as FaultDb
-  );
-  return dbPromise;
 };
 
 export const FAULT_DB_BRAND = 'buderus';

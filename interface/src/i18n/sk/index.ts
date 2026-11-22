@@ -745,7 +745,13 @@ const sk: Translation = {
   SYS_FAULT_RAW_ONLY: 'Výklad nie je k dispozícii: databáza porúch platí len pre zariadenia Buderus.', // draft, please review
   SYS_FAULT_SEARCH: 'Vyhľadať kód poruchy', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Zadajte kód a doplnkový kód z displeja, napr. H08, 6A 227 alebo 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Databáza porúch Buderus · {0} záznamov · platí len pre zariadenia Buderus', // draft, please review
+  SYS_FAULT_SOURCE: 'Databáza porúch Buderus · {0} · {1} záznamov · platí len pre zariadenia Buderus', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Vysvetlenia chybových kódov Buderus nie sú nainštalované. Stiahnite ich raz (asi 43 KB), aby ste videli, čo kód znamená.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Vysvetlenie nie je nainštalované', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Nainštalovať', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Aktualizovať', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Odstrániť', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Sťahovanie zlyhalo: {0}', // draft, please review
   SYS_FAULT_NONE: 'Žiadna uložená porucha.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'do teraz', // draft, please review
   SYS_SEV_INFO: 'Prevádzkové hlásenie', // draft, please review

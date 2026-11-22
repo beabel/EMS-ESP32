@@ -745,7 +745,13 @@ const hu: Translation = {
   SYS_FAULT_RAW_ONLY: 'Nincs értelmezés: a hibaadatbázis csak Buderus készülékekre vonatkozik.', // draft, please review
   SYS_FAULT_SEARCH: 'Hibakód keresése', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Add meg a kijelzőn látható kódot és kiegészítő kódot, pl. H08, 6A 227 vagy 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus hibaadatbázis · {0} bejegyzés · csak Buderus készülékekre vonatkozik', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus hibaadatbázis · {0} · {1} bejegyzés · csak Buderus készülékekre vonatkozik', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'A Buderus hibakódok magyarázatai nincsenek telepítve. Töltse le egyszer (kb. 43 KB), hogy lássa, mit jelent egy kód.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'A magyarázat nincs telepítve', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Telepítés', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Frissítés', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Eltávolítás', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'A letöltés sikertelen: {0}', // draft, please review
   SYS_FAULT_NONE: 'Nincs tárolt hiba.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'mostanáig', // draft, please review
   SYS_SEV_INFO: 'Üzemi üzenet', // draft, please review

@@ -745,7 +745,13 @@ const fr: Translation = {
   SYS_FAULT_RAW_ONLY: 'Aucune interprétation disponible : la base de défauts ne s’applique qu’aux appareils Buderus.', // draft, please review
   SYS_FAULT_SEARCH: 'Rechercher un code de défaut', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Saisissez le code et le code supplémentaire affichés, p. ex. H08, 6A 227 ou 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Base de défauts Buderus · {0} entrées · uniquement pour les appareils Buderus', // draft, please review
+  SYS_FAULT_SOURCE: 'Base de défauts Buderus · {0} · {1} entrées · uniquement pour les appareils Buderus', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Les explications des codes de défaut Buderus ne sont pas installées. Téléchargez-les une fois (environ 43 Ko) pour voir ce que signifie un code.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Explication non installée', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Installer', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Mettre à jour', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Supprimer', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Échec du téléchargement : {0}', // draft, please review
   SYS_FAULT_NONE: 'Aucun défaut enregistré.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'jusqu’à maintenant', // draft, please review
   SYS_SEV_INFO: 'Message de fonctionnement', // draft, please review

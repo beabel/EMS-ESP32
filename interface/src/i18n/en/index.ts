@@ -745,7 +745,13 @@ const en: Translation = {
   SYS_FAULT_RAW_ONLY: 'No interpretation available: the fault database only applies to Buderus devices.', // draft, please review
   SYS_FAULT_SEARCH: 'Look up a fault code', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Enter the code and additional code from the display, e.g. H08, 6A 227 or 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus fault database · {0} entries · applies to Buderus devices only', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus fault database · {0} · {1} entries · applies to Buderus devices only', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'The explanations for Buderus fault codes are not installed. Download them once (about 43 KB) to see what a code means.', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Explanation not installed', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Install', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Update', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Remove', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'Download failed: {0}', // draft, please review
   SYS_FAULT_NONE: 'No stored fault.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'until now', // draft, please review
   SYS_SEV_INFO: 'Operating message', // draft, please review

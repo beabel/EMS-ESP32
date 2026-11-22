@@ -745,7 +745,13 @@ const zh: Translation = {
   SYS_FAULT_RAW_ONLY: '无法解读:故障数据库仅适用于 Buderus 设备。', // draft, please review
   SYS_FAULT_SEARCH: '查询故障代码', // draft, please review
   SYS_FAULT_SEARCH_HINT: '输入显示屏上的代码和附加代码,例如 H08、6A 227 或 1018。', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus 故障数据库 · {0} 条 · 仅适用于 Buderus 设备', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus 故障数据库 · {0} · {1} 条 · 仅适用于 Buderus 设备', // draft, please review
+  SYS_FAULT_PACK_MISSING: '尚未安装 Buderus 故障代码的说明。下载一次（约 43 KB）即可查看代码的含义。', // draft, please review
+  SYS_FAULT_PACK_SHORT: '说明未安装', // draft, please review
+  SYS_FAULT_PACK_INSTALL: '安装', // draft, please review
+  SYS_FAULT_PACK_UPDATE: '更新', // draft, please review
+  SYS_FAULT_PACK_REMOVE: '移除', // draft, please review
+  SYS_FAULT_PACK_ERROR: '下载失败：{0}', // draft, please review
   SYS_FAULT_NONE: '没有已存储的故障。', // draft, please review
   SYS_FAULT_UNTIL_NOW: '至今', // draft, please review
   SYS_SEV_INFO: '运行信息', // draft, please review

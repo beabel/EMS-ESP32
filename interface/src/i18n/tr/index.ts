@@ -745,7 +745,13 @@ const tr: Translation = {
   SYS_FAULT_RAW_ONLY: 'Yorum yok: arıza veritabanı yalnızca Buderus cihazları için geçerlidir.', // draft, please review
   SYS_FAULT_SEARCH: 'Arıza kodu ara', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Ekrandaki kodu ve ek kodu girin, örn. H08, 6A 227 veya 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus arıza veritabanı · {0} kayıt · yalnızca Buderus cihazları için', // draft, please review
+  SYS_FAULT_SOURCE: 'Buderus arıza veritabanı · {0} · {1} kayıt · yalnızca Buderus cihazları için', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Buderus arıza kodlarının açıklamaları yüklü değil. Bir kodun ne anlama geldiğini görmek için bir kez indirin (yaklaşık 43 KB).', // draft, please review
+  SYS_FAULT_PACK_SHORT: 'Açıklama yüklü değil', // draft, please review
+  SYS_FAULT_PACK_INSTALL: 'Yükle', // draft, please review
+  SYS_FAULT_PACK_UPDATE: 'Güncelle', // draft, please review
+  SYS_FAULT_PACK_REMOVE: 'Kaldır', // draft, please review
+  SYS_FAULT_PACK_ERROR: 'İndirme başarısız: {0}', // draft, please review
   SYS_FAULT_NONE: 'Kayıtlı arıza yok.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'şimdiye kadar', // draft, please review
   SYS_SEV_INFO: 'Çalışma mesajı', // draft, please review
