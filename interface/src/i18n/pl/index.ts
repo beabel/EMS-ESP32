@@ -752,6 +752,7 @@ const pl: BaseTranslation = {
   SYS_FAULT_PACK_UPDATE: 'Aktualizuj', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Usuń', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Pobieranie nie powiodło się: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Zainstaluj z pliku', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Pakiety kodów błędów', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Adres źródła', // draft, please review
   SYS_FAULT_PACK_LIST: 'Pokaż pakiety', // draft, please review

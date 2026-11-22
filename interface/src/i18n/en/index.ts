@@ -752,6 +752,7 @@ const en: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Update', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Remove', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download failed: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Install from a file', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Fault code packs', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Source address', // draft, please review
   SYS_FAULT_PACK_LIST: 'Show packs', // draft, please review

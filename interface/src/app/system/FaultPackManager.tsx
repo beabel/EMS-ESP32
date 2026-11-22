@@ -7,6 +7,7 @@ import { useI18nContext } from 'i18n/i18n-react';
 import {
   getSource,
   installPack,
+  installPackFile,
   loadIndex,
   removePack,
   setSource,
@@ -99,6 +100,22 @@ export const FaultPackManager = ({ missing }: { missing: readonly string[] }) =>
 
       {me.admin && supported && (
         <>
+          <p style={{ margin: '12px 0 4px' }}>
+            <label className="sys-fault-lbl" htmlFor="fault-file">
+              {LL.SYS_FAULT_PACK_FILE()}
+            </label>
+            <input
+              id="fault-file"
+              type="file"
+              accept=".json,application/json"
+              disabled={busy !== ''}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                e.target.value = '';
+                if (file) void run('file', () => installPackFile(file));
+              }}
+            />
+          </p>
           <p style={{ margin: '12px 0 4px' }}>
             <label className="sys-fault-lbl" htmlFor="fault-source">
               {LL.SYS_FAULT_PACK_SOURCE()}

@@ -752,6 +752,7 @@ const nl: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Bijwerken', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Verwijderen', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Downloaden mislukt: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Installeren vanuit een bestand', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Storingscodepakketten', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Adres van de bron', // draft, please review
   SYS_FAULT_PACK_LIST: 'Pakketten tonen', // draft, please review

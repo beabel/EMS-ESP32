@@ -752,6 +752,7 @@ const tr: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Güncelle', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Kaldır', // draft, please review
   SYS_FAULT_PACK_ERROR: 'İndirme başarısız: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Dosyadan yükle', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Arıza kodu paketleri', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Kaynak adresi', // draft, please review
   SYS_FAULT_PACK_LIST: 'Paketleri göster', // draft, please review

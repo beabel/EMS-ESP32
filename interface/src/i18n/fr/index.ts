@@ -752,6 +752,7 @@ const fr: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Mettre à jour', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Supprimer', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Échec du téléchargement : {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Installer depuis un fichier', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Paquets de codes de défaut', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Adresse de la source', // draft, please review
   SYS_FAULT_PACK_LIST: 'Afficher les paquets', // draft, please review

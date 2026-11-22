@@ -269,16 +269,9 @@ const gzip = async (text: string): Promise<Blob> => {
   return new Response(stream).blob();
 };
 
-// downloads the pack of an entry of the source index and stores it on the gateway
-export const installPack = async (
-  index: SourceIndex,
-  entry: IndexPack
-): Promise<void> => {
-  const url = checkUrl(new URL(entry.file, index.url).href);
-  const data = await fetchJson(url);
-  if (!isFaultPack(data) || data.brand !== entry.brand || data.lang !== entry.lang) {
-    throw new Error('not a valid fault code pack');
-  }
+// validates a pack, compresses it and stores it on the gateway
+const uploadPack = async (data: unknown): Promise<void> => {
+  if (!isFaultPack(data)) throw new Error('not a valid fault code pack');
   const file = await gzip(JSON.stringify(data));
   const max = store.info?.max_size ?? 0;
   if (max > 0 && file.size > max) throw new Error('pack too large for the gateway');
@@ -291,6 +284,25 @@ export const installPack = async (
   );
   store.packs.clear();
   await refreshInstalled();
+};
+
+// downloads the pack of an entry of the source index and stores it on the gateway
+export const installPack = async (
+  index: SourceIndex,
+  entry: IndexPack
+): Promise<void> => {
+  const url = checkUrl(new URL(entry.file, index.url).href);
+  const data = await fetchJson(url);
+  if (!isFaultPack(data) || data.brand !== entry.brand || data.lang !== entry.lang) {
+    throw new Error('not a valid fault code pack');
+  }
+  await uploadPack(data);
+};
+
+// installs a pack from a file on the user's computer
+export const installPackFile = async (file: File): Promise<void> => {
+  if (file.size > MAX_FILE_BYTES) throw new Error('file too large');
+  await uploadPack(JSON.parse(await file.text()) as unknown);
 };
 
 export const removePack = async (brand: string, lang: string): Promise<void> => {

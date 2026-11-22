@@ -752,6 +752,7 @@ const sv: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Uppdatera', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Ta bort', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedladdningen misslyckades: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Installera från en fil', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Felkodspaket', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Källans adress', // draft, please review
   SYS_FAULT_PACK_LIST: 'Visa paket', // draft, please review

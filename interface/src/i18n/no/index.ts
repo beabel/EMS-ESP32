@@ -752,6 +752,7 @@ const no: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Oppdater', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Fjern', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedlasting mislyktes: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Installer fra en fil', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Feilkodepakker', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Kildeadresse', // draft, please review
   SYS_FAULT_PACK_LIST: 'Vis pakker', // draft, please review

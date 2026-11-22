@@ -752,6 +752,7 @@ const de: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Aktualisieren', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Entfernen', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download fehlgeschlagen: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Aus einer Datei installieren', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Fehlercode-Pakete', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Adresse der Quelle', // draft, please review
   SYS_FAULT_PACK_LIST: 'Pakete anzeigen', // draft, please review

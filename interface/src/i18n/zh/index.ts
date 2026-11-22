@@ -752,6 +752,7 @@ const zh: Translation = {
   SYS_FAULT_PACK_UPDATE: '更新', // draft, please review
   SYS_FAULT_PACK_REMOVE: '移除', // draft, please review
   SYS_FAULT_PACK_ERROR: '下载失败：{0}', // draft, please review
+  SYS_FAULT_PACK_FILE: '从文件安装', // draft, please review
   SYS_FAULT_PACK_TITLE: '故障代码包', // draft, please review
   SYS_FAULT_PACK_SOURCE: '来源地址', // draft, please review
   SYS_FAULT_PACK_LIST: '显示代码包', // draft, please review

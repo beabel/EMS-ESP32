@@ -752,6 +752,7 @@ const it: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Aggiorna', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Rimuovi', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download non riuscito: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Installa da file', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Pacchetti dei codici di guasto', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Indirizzo della fonte', // draft, please review
   SYS_FAULT_PACK_LIST: 'Mostra pacchetti', // draft, please review

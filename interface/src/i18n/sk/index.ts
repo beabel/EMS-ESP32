@@ -752,6 +752,7 @@ const sk: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Aktualizovať', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odstrániť', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Sťahovanie zlyhalo: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Nainštalovať zo súboru', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Balíčky chybových kódov', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Adresa zdroja', // draft, please review
   SYS_FAULT_PACK_LIST: 'Zobraziť balíčky', // draft, please review

@@ -752,6 +752,7 @@ const cs: Translation = {
   SYS_FAULT_PACK_UPDATE: 'Aktualizovat', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odebrat', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Stažení se nezdařilo: {0}', // draft, please review
+  SYS_FAULT_PACK_FILE: 'Nainstalovat ze souboru', // draft, please review
   SYS_FAULT_PACK_TITLE: 'Balíčky chybových kódů', // draft, please review
   SYS_FAULT_PACK_SOURCE: 'Adresa zdroje', // draft, please review
   SYS_FAULT_PACK_LIST: 'Zobrazit balíčky', // draft, please review
