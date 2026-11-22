@@ -1,25 +1,144 @@
-# Fault code packs
+# Fault code packs: specification (draft)
 
-The explanations of a manufacturer's fault codes. They are **not** part of the firmware: the Web UI
-downloads the pack of a brand once, when the user asks for it (System menu > Maintenance & faults),
-and keeps it in the browser. A device only gets an explanation when its brand matches the pack,
-because the same code can mean something else for another manufacturer.
+The explanations of a manufacturer's fault codes (what a code means, the possible cause, what to do)
+are **not** part of the firmware or the Web UI. They are **packs**: small JSON files that are installed
+on the EMS-ESP gateway when needed, from a **source** the user chooses. Anyone can write a pack for
+another manufacturer or language and host it anywhere.
 
-One file per brand, named `<brand>.json` with the brand in lower case as the devices report it
-(for example `buderus.json`):
+Status: draft for discussion, nothing of this is implemented in the firmware yet.
+
+## 1. Terms
+
+| Term | Meaning |
+| --- | --- |
+| Pack | One file with the explanations for **one brand in one language**, e.g. `buderus.de.json` |
+| Source | An address (URL) of an `index.json` that lists packs and where to get them |
+| Installed pack | A pack stored on the gateway's file system, available to every browser, also without internet |
+
+Not to be confused with the firmware *Modules* page (licensed code modules); packs only contain data.
+
+## 2. How it works
+
+1. In the Web UI the user picks a source (a default is pre-filled, any other address can be typed in).
+2. The Web UI reads the source's `index.json` and lists the packs: brand, language, version, size.
+3. The user installs a pack. **The browser** downloads the file and uploads it to the gateway; the gateway
+   needs no internet connection and no HTTPS client.
+4. The gateway stores the pack. From then on every browser reads it from the gateway.
+5. A fault card of a device uses the installed pack of the device's brand, in the Web UI language.
+
+The pack is used for a device only when the brand matches, because the same code can mean something
+completely different for another manufacturer. Without a matching pack the raw code is shown.
+
+## 3. Source: `index.json`
+
+```json
+{
+  "format": 1,
+  "name": "Example source",
+  "packs": [
+    {
+      "brand": "buderus",
+      "lang": "de",
+      "version": "2026-11-22",
+      "entries": 1160,
+      "size": 357375,
+      "file": "buderus.de.json"
+    }
+  ]
+}
+```
+
+- `file` is relative to the `index.json` (or an absolute URL, so a source can point to files elsewhere).
+- `size` is the size in bytes of the uncompressed file, used to check the free space before installing.
+- A source can be a folder in a GitHub repository (`raw.githubusercontent.com` works) or any web server
+  that allows cross-origin reads (`Access-Control-Allow-Origin`).
+
+## 4. Pack file
 
 ```json
 {
   "format": 1,
   "brand": "buderus",
+  "lang": "de",
   "version": "2026-11-22",
-  "classes": { "14": ["class title", "class meaning"] },
-  "codes": [["H08", 1018, "14", "title", "possible cause", "remedy"]]
+  "source": "where the explanations come from",
+  "license": "license of the text",
+  "applies": { "unbranded_with_boiler": true },
+  "classes": {
+    "14": { "title": "Class title", "meaning": "What the class means", "severity": "warn" }
+  },
+  "codes": [
+    ["H08", 1018, "14", "Title", "Possible cause", "Remedy"]
+  ]
 }
 ```
 
-- `classes`: fault class id -> [title, meaning]
-- `codes`: [code, additional code, class id, title, cause, remedy]
+- `brand`: lower case, exactly as the devices report their brand (e.g. `buderus`).
+- `lang`: the language code of the Web UI (`en`, `de`, `fr`, `nl`, ...).
+- `version`: any string that sorts by date, shown to the user, used to offer updates.
+- `source` and `license` are required, so the origin of the texts is always visible.
+- `applies.unbranded_with_boiler`: also use the pack for devices without a brand (e.g. a controller) in a
+  system whose boiler has this brand.
+- `classes`: fault classes with a **severity**: `info`, `service`, `warn`, `error` or `unknown`.
+  The severity is part of the pack, so every manufacturer can define its own classes.
+- `codes`: `[code, additional code or null, class id, title, cause, remedy]`. The additional code is optional
+  because not every manufacturer has one. Entries can be left empty (`""`).
+- Texts are plain text only (line breaks as `\n`), never HTML. The Web UI shows them as text.
+- Unknown extra fields are ignored, so the format can grow.
 
-To add a manufacturer, add a `<brand>.json` here. The Web UI needs no change except that the
-brand is offered where the devices of that brand show a fault code.
+## 5. Languages
+
+- One file per brand and language: `buderus.de.json`, `buderus.en.json`, ...; a translator works on one file.
+- The Web UI uses the pack in its own language; if there is none, it falls back to `en`, then to any pack
+  of that brand.
+- A translation has the same `codes` (code and additional code) as the original; only the texts change.
+  An entry missing in a translation is shown from the fallback language.
+- New languages are added as files; neither the firmware nor the Web UI changes.
+
+## 6. Gateway storage and API (firmware)
+
+Stored in the gateway's file system as `/faults/<brand>.<lang>.json.gz`. The browser compresses the
+file before the upload, so a pack of 350 KB needs about 45 KB.
+
+| Endpoint | Who | What |
+| --- | --- | --- |
+| `GET /rest/faultPacks` | signed-in users | list of installed packs (brand, lang, version, entries, size) and the free space |
+| `GET /rest/faultPack?brand=..&lang=..` | signed-in users | the pack file |
+| `POST /rest/faultPack` | admin | upload a pack (the compressed file) |
+| `POST /rest/action` `deleteFaultPack` | admin | remove a pack |
+
+Rules in the firmware:
+
+- `brand` and `lang` only `a-z`, `0-9`, `-`; the file name is built from them, never taken from the upload.
+- Upload size limited (proposal: 256 KB compressed); refused when the free space would drop too low.
+- Written to a temporary file and renamed, so a failed upload leaves the old pack intact.
+- Nothing is parsed or kept in RAM on the gateway; the file is stored and streamed as is.
+- Not part of the settings backup (a pack can be installed again).
+
+Boards: the file system is 2 MB on 16 MB boards and 4 MB on 32 MB boards. On 4 MB boards it is only 64 KB,
+so the Web UI does not offer installing packs there.
+
+## 7. Web UI
+
+- *System menu > Maintenance & faults*: when a device with a known brand reports a fault code and no pack is
+  installed, a card offers to install one.
+- A small manager (sources, installed packs, update, remove) for choosing the source and the language.
+- The Web UI validates every downloaded file before uploading it: `format`, `brand`, `lang`, `version`,
+  size, the structure of `classes` and `codes`.
+
+## 8. Security
+
+- Packs are data only, shown as text; nothing from a pack is executed or inserted as HTML.
+- Installing and removing needs admin rights; the gateway checks size and names itself.
+- The source of an installed pack (address and version) is shown to the user.
+- Use HTTPS sources where possible; the Web UI warns for plain HTTP sources outside the local network.
+
+## 9. Open points
+
+- Origin and license of the Buderus explanations (`source` / `license` in the pack); to be clarified before
+  any repository hosts the file.
+- Which source is pre-filled by default (this repository, or none).
+- Whether the web server of the firmware can send a stored `.gz` file with the right header; otherwise the
+  file is stored uncompressed (350 KB) or the Web UI decompresses it.
+- The free space on real devices (settings and other files share the file system).
+- Per-device settings, such as hiding fault cards, are not part of this.
