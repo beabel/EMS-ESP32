@@ -53,6 +53,7 @@ A full list of breaking changes can be found in this [discussion](https://github
 - Modbus registers for pool devices (unit ID 21), which had none [#3454](https://github.com/emsesp/EMS-ESP32/issues/3454)
 - the short summary on the Help page, to paste into an issue or chat, also shows the Tx mode, EMS-ESP's bus ID, the bus quality and Tx failures, and lists every EMS device with its type, device ID and product ID. `/rest/systemStatus` has new `bus_id` and `tx_mode` fields for it
 - Simplified Chinese translation (zh-CN) by HJ
+- the gateway can store fault code packs, files with the explanations of a manufacturer's fault codes in one language, so the Web UI can show them without internet and in every browser. New `/rest/faultPacks`, `/rest/faultPack`, `/rest/uploadFaultPack` and `/rest/deleteFaultPack`; installing and removing is for admins. A pack is stored compressed (about 45 KB each) and isn't read or parsed by the gateway. Not offered on boards with a 4 MB flash, where the file system is only 64 KB
 
 ## Fixed
 
