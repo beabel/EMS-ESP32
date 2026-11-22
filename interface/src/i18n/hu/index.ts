@@ -742,16 +742,23 @@ const hu: Translation = {
   SYS_FAULT_CLASS: 'Hibaosztály', // draft, please review
   SYS_FAULT_ADD: 'Kiegészítő kód {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Nincs az adatbázisban', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Nincs értelmezés: a hibaadatbázis csak Buderus készülékekre vonatkozik.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Ehhez a készülékhez nincs elérhető magyarázat.', // draft, please review
   SYS_FAULT_SEARCH: 'Hibakód keresése', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Add meg a kijelzőn látható kódot és kiegészítő kódot, pl. H08, 6A 227 vagy 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus hibaadatbázis · {0} · {1} bejegyzés · csak Buderus készülékekre vonatkozik', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'A Buderus hibakódok magyarázatai nincsenek telepítve. Töltse le egyszer (kb. 43 KB), hogy lássa, mit jelent egy kód.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · verzió {2} · {3} bejegyzés', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'A(z) {0} hibakódok magyarázatai nincsenek telepítve. Válasszon alább egy forrást, és telepítse egyszer; az átjárón tárolódnak, és minden böngészőben elérhetők.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'A magyarázat nincs telepítve', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Telepítés', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Frissítés', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Eltávolítás', // draft, please review
   SYS_FAULT_PACK_ERROR: 'A letöltés sikertelen: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Hibakód-csomagok', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'A forrás címe', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Csomagok megjelenítése', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'Ennek a forrásnak nincsenek csomagjai.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'Nincs elég szabad hely az átjárón.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Ez az átjáró nem tud hibakód-csomagokat tárolni. Újabb firmware és legalább 16 MB flash szükséges.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Telepítve', // draft, please review
   SYS_FAULT_NONE: 'Nincs tárolt hiba.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'mostanáig', // draft, please review
   SYS_SEV_INFO: 'Üzemi üzenet', // draft, please review

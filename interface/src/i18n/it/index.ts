@@ -742,16 +742,23 @@ const it: Translation = {
   SYS_FAULT_CLASS: 'Classe di guasto', // draft, please review
   SYS_FAULT_ADD: 'Codice aggiuntivo {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Non presente nel database', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Nessuna interpretazione disponibile: il database guasti vale solo per dispositivi Buderus.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Nessuna spiegazione disponibile per questo dispositivo.', // draft, please review
   SYS_FAULT_SEARCH: 'Cerca un codice di guasto', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Inserisci il codice e il codice aggiuntivo dal display, ad es. H08, 6A 227 o 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Database guasti Buderus · {0} · {1} voci · valido solo per dispositivi Buderus', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Le spiegazioni dei codici di guasto Buderus non sono installate. Scaricale una volta (circa 43 KB) per vedere cosa significa un codice.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · versione {2} · {3} voci', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Nessuna spiegazione installata per i codici di guasto {0}. Scegli una fonte qui sotto e installale una volta; vengono salvate sul gateway e sono disponibili in ogni browser.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Spiegazione non installata', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Installa', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Aggiorna', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Rimuovi', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download non riuscito: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Pacchetti dei codici di guasto', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Indirizzo della fonte', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Mostra pacchetti', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'Questa fonte non ha pacchetti.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'Spazio libero insufficiente sul gateway.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Questo gateway non può salvare pacchetti di codici di guasto. Servono un firmware più recente e una flash di almeno 16 MB.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Installato', // draft, please review
   SYS_FAULT_NONE: 'Nessun guasto memorizzato.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'fino ad ora', // draft, please review
   SYS_SEV_INFO: 'Messaggio di funzionamento', // draft, please review

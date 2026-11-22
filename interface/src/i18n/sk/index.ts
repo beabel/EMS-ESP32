@@ -742,16 +742,23 @@ const sk: Translation = {
   SYS_FAULT_CLASS: 'Trieda poruchy', // draft, please review
   SYS_FAULT_ADD: 'Doplnkový kód {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Nie je v databáze', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Výklad nie je k dispozícii: databáza porúch platí len pre zariadenia Buderus.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Pre toto zariadenie nie je k dispozícii vysvetlenie.', // draft, please review
   SYS_FAULT_SEARCH: 'Vyhľadať kód poruchy', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Zadajte kód a doplnkový kód z displeja, napr. H08, 6A 227 alebo 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Databáza porúch Buderus · {0} · {1} záznamov · platí len pre zariadenia Buderus', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Vysvetlenia chybových kódov Buderus nie sú nainštalované. Stiahnite ich raz (asi 43 KB), aby ste videli, čo kód znamená.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · verzia {2} · {3} záznamov', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Pre chybové kódy {0} nie sú nainštalované žiadne vysvetlenia. Nižšie vyberte zdroj a nainštalujte ich raz; uložia sa v bráne a budú dostupné v každom prehliadači.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Vysvetlenie nie je nainštalované', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Nainštalovať', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Aktualizovať', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odstrániť', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Sťahovanie zlyhalo: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Balíčky chybových kódov', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Adresa zdroja', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Zobraziť balíčky', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'Tento zdroj nemá žiadne balíčky.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'V bráne nie je dosť voľného miesta.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Táto brána nemôže ukladať balíčky chybových kódov. Potrebuje novší firmware a flash aspoň 16 MB.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Nainštalované', // draft, please review
   SYS_FAULT_NONE: 'Žiadna uložená porucha.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'do teraz', // draft, please review
   SYS_SEV_INFO: 'Prevádzkové hlásenie', // draft, please review

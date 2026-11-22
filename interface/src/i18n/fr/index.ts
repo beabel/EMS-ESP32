@@ -742,16 +742,23 @@ const fr: Translation = {
   SYS_FAULT_CLASS: 'Classe de défaut', // draft, please review
   SYS_FAULT_ADD: 'Code supplémentaire {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Absent de la base de données', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Aucune interprétation disponible : la base de défauts ne s’applique qu’aux appareils Buderus.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Aucune explication disponible pour cet appareil.', // draft, please review
   SYS_FAULT_SEARCH: 'Rechercher un code de défaut', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Saisissez le code et le code supplémentaire affichés, p. ex. H08, 6A 227 ou 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Base de défauts Buderus · {0} · {1} entrées · uniquement pour les appareils Buderus', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Les explications des codes de défaut Buderus ne sont pas installées. Téléchargez-les une fois (environ 43 Ko) pour voir ce que signifie un code.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · version {2} · {3} entrées', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Aucune explication installée pour les codes de défaut {0}. Choisissez une source ci-dessous et installez-les une fois ; elles sont stockées sur la passerelle et disponibles dans chaque navigateur.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Explication non installée', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Installer', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Mettre à jour', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Supprimer', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Échec du téléchargement : {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Paquets de codes de défaut', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Adresse de la source', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Afficher les paquets', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'Cette source n\'a aucun paquet.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'Pas assez d\'espace libre sur la passerelle.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Cette passerelle ne peut pas stocker de paquets de codes de défaut. Il faut un firmware plus récent et une mémoire flash d\'au moins 16 Mo.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Installé', // draft, please review
   SYS_FAULT_NONE: 'Aucun défaut enregistré.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'jusqu’à maintenant', // draft, please review
   SYS_SEV_INFO: 'Message de fonctionnement', // draft, please review

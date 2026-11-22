@@ -742,16 +742,23 @@ const en: Translation = {
   SYS_FAULT_CLASS: 'Fault class', // draft, please review
   SYS_FAULT_ADD: 'Additional code {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Not in the database', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'No interpretation available: the fault database only applies to Buderus devices.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'No explanation available for this device.', // draft, please review
   SYS_FAULT_SEARCH: 'Look up a fault code', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Enter the code and additional code from the display, e.g. H08, 6A 227 or 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus fault database · {0} · {1} entries · applies to Buderus devices only', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'The explanations for Buderus fault codes are not installed. Download them once (about 43 KB) to see what a code means.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · version {2} · {3} entries', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'No explanations installed for {0} fault codes. Choose a source below and install them once; they are stored on the gateway and available in every browser.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Explanation not installed', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Install', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Update', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Remove', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Download failed: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Fault code packs', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Source address', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Show packs', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'This source has no packs.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'Not enough free space on the gateway.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'This gateway can\'t store fault code packs. It needs a newer firmware and a flash of at least 16 MB.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Installed', // draft, please review
   SYS_FAULT_NONE: 'No stored fault.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'until now', // draft, please review
   SYS_SEV_INFO: 'Operating message', // draft, please review

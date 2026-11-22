@@ -1,0 +1,14 @@
+{
+  "format": 1,
+  "name": "EMS-ESP fault code packs",
+  "packs": [
+    {
+      "brand": "buderus",
+      "lang": "de",
+      "version": "2026-11-22",
+      "entries": 1160,
+      "size": 358084,
+      "file": "buderus.de.json"
+    }
+  ]
+}

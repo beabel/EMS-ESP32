@@ -742,16 +742,23 @@ const sv: Translation = {
   SYS_FAULT_CLASS: 'Felklass', // draft, please review
   SYS_FAULT_ADD: 'Tilläggskod {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Finns inte i databasen', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Ingen tolkning tillgänglig: felkodsdatabasen gäller bara Buderus-enheter.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Ingen förklaring finns för den här enheten.', // draft, please review
   SYS_FAULT_SEARCH: 'Slå upp felkod', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Ange koden och tilläggskoden från displayen, t.ex. H08, 6A 227 eller 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Buderus felkodsdatabas · {0} · {1} poster · gäller bara Buderus-enheter', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Förklaringarna till Buderus felkoder är inte installerade. Ladda ner dem en gång (ca 43 KB) för att se vad en kod betyder.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · version {2} · {3} poster', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Inga förklaringar är installerade för {0}-felkoder. Välj en källa nedan och installera dem en gång; de sparas på gatewayen och är tillgängliga i varje webbläsare.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Förklaring inte installerad', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Installera', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Uppdatera', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Ta bort', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Nedladdningen misslyckades: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Felkodspaket', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Källans adress', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Visa paket', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'Den här källan har inga paket.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'Inte tillräckligt med ledigt utrymme på gatewayen.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Den här gatewayen kan inte spara felkodspaket. Den behöver nyare firmware och minst 16 MB flash.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Installerad', // draft, please review
   SYS_FAULT_NONE: 'Inget lagrat fel.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'tills nu', // draft, please review
   SYS_SEV_INFO: 'Driftmeddelande', // draft, please review

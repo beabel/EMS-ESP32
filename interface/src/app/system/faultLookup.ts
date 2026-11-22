@@ -1,12 +1,33 @@
-// Looking up fault codes in a fault code pack (see faultPacks.ts).
+// Looking up fault codes in a fault code pack (see faults/README.md).
 // IMPORTANT: The same code can mean something completely different for another manufacturer.
-// The explanation may therefore only be used for devices of the brand Buderus (faultDbApplies).
+// A pack is therefore only used for the devices of its brand (packApplies).
 
 export type Severity = 'info' | 'service' | 'warn' | 'error' | 'unknown';
 
+export interface FaultClass {
+  title: string;
+  meaning: string;
+  severity: Severity;
+}
+
+// [code, additional code or null, class id, title, cause, remedy]
+export type FaultCode = [string, number | null, string, string, string, string];
+
+export interface FaultPack {
+  format: 1;
+  brand: string; // lower case, as the devices report it
+  lang: string;
+  version: string;
+  source: string;
+  license: string;
+  applies?: { unbranded_with_boiler?: boolean };
+  classes: Record<string, FaultClass>;
+  codes: FaultCode[];
+}
+
 export interface FaultEntry {
   code: string;
-  add: number;
+  add: number | null;
   title: string;
   cause: string;
   fix: string;
@@ -15,59 +36,45 @@ export interface FaultEntry {
   severity: Severity;
 }
 
-export type FaultDb = {
-  classes: Record<string, [string, string]>;
-  codes: [string, number, string, string, string, string][];
-};
-
-export const FAULT_DB_BRAND = 'buderus';
-
-// A device of the brand Buderus, or a device without a brand (e.g. the RC300 controller) when the
-// Kessel des Systems Buderus ist. Alle anderen Marken: keine Deutung.
-export const faultDbApplies = (
-  brand: string,
-  systemHasBuderusBoiler: boolean
+// A pack is used for a device of its brand, or for a device without a brand (e.g. a controller)
+// when the pack says so and the boiler of the system has the brand of the pack.
+export const packApplies = (
+  pack: FaultPack,
+  deviceBrand: string,
+  boilerBrand: string
 ): boolean => {
-  const b = brand.trim().toLowerCase();
-  return b === FAULT_DB_BRAND || (b === '' && systemHasBuderusBoiler);
+  const b = deviceBrand.trim().toLowerCase();
+  return (
+    b === pack.brand ||
+    (b === '' && !!pack.applies?.unbranded_with_boiler && boilerBrand === pack.brand)
+  );
 };
-
-const severityOf = (k: string): Severity =>
-  k === 'BC'
-    ? 'info'
-    : k === '18' || k === '20'
-      ? 'service'
-      : k === '14' || k === '16'
-        ? 'warn'
-        : ['A', 'B', 'L', 'U'].includes(k)
-          ? 'unknown'
-          : 'error';
 
 const normalize = (s: string): string => s.toUpperCase().replace(/[Ξ≡]/g, '=');
 
-const toEntry = (db: FaultDb, row: FaultDb['codes'][number]): FaultEntry => {
+const toEntry = (pack: FaultPack, row: FaultCode): FaultEntry => {
   const [code, add, cls, title, cause, fix] = row;
-  const c = db.classes[cls];
+  const c = pack.classes[cls];
   return {
     code,
     add,
     title,
     cause,
     fix,
-    classText: c?.[0] ?? '',
-    classMeaning: c?.[1] ?? '',
-    severity: severityOf(cls)
+    classText: c?.title ?? '',
+    classMeaning: c?.meaning ?? '',
+    severity: c?.severity ?? 'unknown'
   };
 };
 
 export const findFault = (
-  db: FaultDb,
+  pack: FaultPack,
   code: string,
-  add: number
+  add: number | null
 ): FaultEntry | null => {
   const c = normalize(code);
-  const row = db.codes.find((r) => r[0].toUpperCase() === c && r[1] === add);
-  return row ? toEntry(db, row) : null;
+  const row = pack.codes.find((r) => r[0].toUpperCase() === c && r[1] === add);
+  return row ? toEntry(pack, row) : null;
 };
 
 export interface ParsedCode {
@@ -87,20 +94,20 @@ export const parseLastCode = (value: unknown): ParsedCode | null => {
   return { code: m[1] ?? '', add: Number(m[2]), span: m[3] ?? '' };
 };
 
-export const searchFaults = (db: FaultDb, raw: string): FaultEntry[] => {
+export const searchFaults = (pack: FaultPack, raw: string): FaultEntry[] => {
   const q = normalize(raw.trim());
   if (!q) return [];
-  let rows: FaultDb['codes'];
+  let rows: FaultCode[];
   const m = /^([A-Z0-9=-]{1,3})\s*[\s(\-/,:]+\s*(\d{1,4})\)?$/.exec(q);
   if (m) {
-    rows = db.codes.filter(
+    rows = pack.codes.filter(
       (r) => r[0].toUpperCase() === m[1] && r[1] === Number(m[2])
     );
   } else if (/^\d+$/.test(q)) {
-    rows = db.codes.filter((r) => r[0] === q || r[1] === Number(q));
+    rows = pack.codes.filter((r) => r[0] === q || r[1] === Number(q));
   } else {
     const code = q.replace(/[^A-Z0-9]/g, '');
-    rows = db.codes.filter((r) => r[0].toUpperCase() === code);
+    rows = pack.codes.filter((r) => r[0].toUpperCase() === code);
   }
-  return rows.slice(0, 25).map((r) => toEntry(db, r));
+  return rows.slice(0, 25).map((r) => toEntry(pack, r));
 };

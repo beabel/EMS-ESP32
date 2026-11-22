@@ -742,16 +742,23 @@ const cs: Translation = {
   SYS_FAULT_CLASS: 'Třída poruchy', // draft, please review
   SYS_FAULT_ADD: 'Doplňkový kód {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Není v databázi', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Výklad není k dispozici: databáze poruch platí pouze pro zařízení Buderus.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Pro toto zařízení není k dispozici vysvětlení.', // draft, please review
   SYS_FAULT_SEARCH: 'Vyhledat kód poruchy', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Zadejte kód a doplňkový kód z displeje, např. H08, 6A 227 nebo 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Databáze poruch Buderus · {0} · {1} záznamů · platí pouze pro zařízení Buderus', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Vysvětlení chybových kódů Buderus není nainstalováno. Stáhněte je jednou (asi 43 KB), abyste viděli, co kód znamená.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · verze {2} · {3} záznamů', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Pro chybové kódy {0} nejsou nainstalována žádná vysvětlení. Níže vyberte zdroj a nainstalujte je jednou; uloží se v bráně a budou k dispozici v každém prohlížeči.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Vysvětlení není nainstalováno', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Nainstalovat', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Aktualizovat', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Odebrat', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Stažení se nezdařilo: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Balíčky chybových kódů', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Adresa zdroje', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Zobrazit balíčky', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'Tento zdroj nemá žádné balíčky.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'V bráně není dost volného místa.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Tato brána nemůže ukládat balíčky chybových kódů. Potřebuje novější firmware a flash alespoň 16 MB.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Nainstalováno', // draft, please review
   SYS_FAULT_NONE: 'Žádná uložená porucha.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'do nynějška', // draft, please review
   SYS_SEV_INFO: 'Provozní hlášení', // draft, please review

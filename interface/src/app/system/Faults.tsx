@@ -1,18 +1,13 @@
 import { useMemo, useState } from 'react';
 
-import { Button, SearchField, Tag } from 'components/ui';
+import { SearchField, Tag } from 'components/ui';
 import type { TagKind } from 'components/ui';
 import { useI18nContext } from 'i18n/i18n-react';
 
-import {
-  FAULT_DB_BRAND,
-  faultDbApplies,
-  findFault,
-  parseLastCode,
-  searchFaults
-} from './faultLookup';
+import { FaultPackManager, brandName } from './FaultPackManager';
+import { findFault, packApplies, parseLastCode, searchFaults } from './faultLookup';
 import type { FaultEntry, Severity } from './faultLookup';
-import { installPack, removePack, useFaultPack } from './faultPacks';
+import { useFaultPacks } from './faultPacks';
 import { findItem, str } from './model';
 import type { SysItem } from './model';
 
@@ -24,27 +19,27 @@ const SEV_TAG: Record<Severity, TagKind> = {
   unknown: 'muted'
 };
 
+// what a card can say about its code
+//   entry   - explained from the pack of the brand
+//   unknown - the pack has no entry for this code
+//   nopack  - the brand is known, but no pack is installed for it
+//   raw     - no brand, or the pack doesn't apply: only the raw code
+//   loading - the installed packs aren't loaded yet
+export type FaultState = 'entry' | 'unknown' | 'nopack' | 'raw' | 'loading';
+
 export interface FaultCardData {
   kind: 'last' | 'ctrl' | 'service' | 'hit';
   code: string;
   add: number | null;
   span: string;
-  // interpretation allowed: only for devices of the brand Buderus
-  applies: boolean;
-  // the pack of the brand is installed, so a missing entry really is unknown
-  packReady: boolean;
+  state: FaultState;
   entry: FaultEntry | null;
 }
 
-const isBuderusBoiler = (i: SysItem): boolean =>
-  i.devType === 'boiler' && i.brand.trim().toLowerCase() === FAULT_DB_BRAND;
-
-// the fault codes the devices report, looked up in the database where it applies.
-// The same code can mean something else for another manufacturer, so a device of
-// another brand only shows its raw code.
+// the fault codes the devices report, explained from the pack of the device's brand. The same code can mean
+// something else for another manufacturer, so a pack is only used for the devices of its brand.
 export const useFaultCards = (items: readonly SysItem[]) => {
-  const hasBuderus = items.some(isBuderusBoiler);
-  const db = useFaultPack(FAULT_DB_BRAND);
+  const { locale } = useI18nContext();
 
   const sources = useMemo(
     () => ({
@@ -56,10 +51,21 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     [items]
   );
 
-  // the explanations are used for a device when the pack of its brand is installed
-  const applicable = [sources.last, sources.ctrl, sources.service].some(
-    (i) => i && faultDbApplies(i.brand, hasBuderus)
-  );
+  const boilerBrand =
+    items
+      .find((i) => i.devType === 'boiler')
+      ?.brand.trim()
+      .toLowerCase() ?? '';
+  const brandOf = (i: SysItem) => i.brand.trim().toLowerCase() || boilerBrand;
+
+  const brands = [
+    ...new Set(
+      [sources.last, sources.ctrl, sources.service]
+        .map((i) => (i ? brandOf(i) : ''))
+        .filter(Boolean)
+    )
+  ].sort();
+  const { packs, info } = useFaultPacks(brands, locale);
 
   const cards: FaultCardData[] = [];
   const add = (
@@ -70,16 +76,24 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     span: string
   ) => {
     if (!code) return;
-    const applies = faultDbApplies(item.brand, hasBuderus);
-    cards.push({
-      kind,
-      code,
-      add: nr,
-      span,
-      applies,
-      packReady: !!db,
-      entry: applies && db && nr ? findFault(db, code, nr) : null
-    });
+    const b = brandOf(item);
+    const pack = b ? packs[b] : null;
+    let state: FaultState;
+    let entry: FaultEntry | null = null;
+    if (!b) {
+      state = 'raw';
+    } else if (!info) {
+      state = 'loading';
+    } else if (!pack) {
+      // installed but not loaded yet is not "missing"
+      state = info.packs.some((p) => p.brand === b) ? 'loading' : 'nopack';
+    } else if (!packApplies(pack, item.brand, boilerBrand)) {
+      state = 'raw';
+    } else {
+      entry = findFault(pack, code, nr);
+      state = entry ? 'entry' : 'unknown';
+    }
+    cards.push({ kind, code, add: nr, span, state, entry });
   };
 
   for (const kind of ['last', 'ctrl'] as const) {
@@ -92,7 +106,11 @@ export const useFaultCards = (items: readonly SysItem[]) => {
     const nr = Number(sources.serviceNr?.dv.v);
     add('service', sources.service, code, nr > 0 ? nr : null, '');
   }
-  return { cards, db, hasBuderus, packMissing: applicable && !db };
+
+  const missing = brands.filter(
+    (b) => info && !info.packs.some((p) => p.brand === b)
+  );
+  return { cards, packs, brands, missing };
 };
 
 const FaultBody = ({ entry }: { entry: FaultEntry }) => {
@@ -158,8 +176,9 @@ const FaultCard = ({ data }: { data: FaultCardData }) => {
           {span ? ` · ${span}` : ''}
         </small>
       </div>
-      {!data.applies && <p>{LL.SYS_FAULT_RAW_ONLY()}</p>}
-      {data.applies && !e && data.add !== null && data.packReady && (
+      {data.state === 'raw' && <p>{LL.SYS_FAULT_RAW_ONLY()}</p>}
+      {data.state === 'nopack' && <p>{LL.SYS_FAULT_PACK_SHORT()}</p>}
+      {data.state === 'unknown' && (
         <div className="sys-fault-title">{LL.SYS_FAULT_UNKNOWN()}</div>
       )}
       {e && <FaultBody entry={e} />}
@@ -167,63 +186,17 @@ const FaultCard = ({ data }: { data: FaultCardData }) => {
   );
 };
 
-// the fault cards of the System menu page Maintenance & faults, with a code lookup
+// the fault cards of the System menu page Maintenance & faults, with a code lookup and the fault code packs
 export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
   const { LL } = useI18nContext();
-  const { cards, db, hasBuderus } = useFaultCards(items);
+  const { cards, packs, missing } = useFaultCards(items);
   const [q, setQ] = useState('');
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
-  const install = async () => {
-    setBusy(true);
-    setError('');
-    try {
-      await installPack(FAULT_DB_BRAND);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-    } finally {
-      setBusy(false);
-    }
-  };
-  const results = db && q.trim() ? searchFaults(db, q) : [];
+  const loaded = Object.values(packs).filter((p) => p !== null);
+  const results = q.trim()
+    ? loaded.flatMap((p) => searchFaults(p, q).map((e) => ({ brand: p.brand, e })))
+    : [];
   return (
     <>
-      {hasBuderus && !db && (
-        <div className="sys-fault">
-          <p>{LL.SYS_FAULT_PACK_MISSING()}</p>
-          <p>
-            <Button icon="download" disabled={busy} onClick={() => void install()}>
-              {LL.SYS_FAULT_PACK_INSTALL()}
-            </Button>
-          </p>
-          {error && <p>{LL.SYS_FAULT_PACK_ERROR(error)}</p>}
-        </div>
-      )}
-      {hasBuderus && db && (
-        <p className="sys-sub" style={{ margin: '0 0 8px' }}>
-          {LL.SYS_FAULT_SOURCE(db.version, db.codes.length)}{' '}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              void install();
-            }}
-          >
-            {LL.SYS_FAULT_PACK_UPDATE()}
-          </a>
-          {' · '}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              removePack(FAULT_DB_BRAND);
-            }}
-          >
-            {LL.SYS_FAULT_PACK_REMOVE()}
-          </a>
-          {error && ` · ${LL.SYS_FAULT_PACK_ERROR(error)}`}
-        </p>
-      )}
       {cards.length === 0 && (
         <div className="sys-fault">
           <p>{LL.SYS_FAULT_NONE()}</p>
@@ -232,7 +205,7 @@ export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
       {cards.map((c) => (
         <FaultCard key={c.kind} data={c} />
       ))}
-      {hasBuderus && db && (
+      {loaded.length > 0 && (
         <div className="sys-fault">
           <div className="sys-fault-head">{LL.SYS_FAULT_SEARCH()}</div>
           <p>
@@ -247,23 +220,25 @@ export const FaultPanel = ({ items }: { items: readonly SysItem[] }) => {
             {LL.SYS_FAULT_SEARCH_HINT()}
           </p>
           <div className="sys-search-res">
-            {results.map((e) => (
-              <FaultCard
-                key={`${e.code}-${e.add}`}
-                data={{
-                  kind: 'hit',
-                  code: e.code,
-                  add: e.add,
-                  span: '',
-                  applies: true,
-                  packReady: true,
-                  entry: e
-                }}
-              />
+            {results.map(({ brand, e }) => (
+              <div key={`${brand}-${e.code}-${e.add}`}>
+                {loaded.length > 1 && <p className="sys-sub">{brandName(brand)}</p>}
+                <FaultCard
+                  data={{
+                    kind: 'hit',
+                    code: e.code,
+                    add: e.add,
+                    span: '',
+                    state: 'entry',
+                    entry: e
+                  }}
+                />
+              </div>
             ))}
           </div>
         </div>
       )}
+      <FaultPackManager missing={missing} />
     </>
   );
 };

@@ -120,7 +120,7 @@ const Home = memo(() => {
   const data = useSystemData();
   const edits = useEdits(data);
   const fav = useFavorites(data);
-  const { cards, packMissing } = useFaultCards(data.items);
+  const { cards } = useFaultCards(data.items);
   const it = data.items;
   const f = (key: string, tag?: string) => findItem(it, key, tag);
 
@@ -271,11 +271,11 @@ const Home = memo(() => {
               <div className="t">
                 {last.entry
                   ? last.entry.title
-                  : last.applies
-                    ? packMissing
+                  : last.state === 'unknown'
+                    ? LL.SYS_FAULT_UNKNOWN()
+                    : last.state === 'nopack'
                       ? LL.SYS_FAULT_PACK_SHORT()
-                      : LL.SYS_FAULT_UNKNOWN()
-                    : ''}
+                      : ''}
               </div>
             </div>
           )}

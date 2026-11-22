@@ -5,7 +5,7 @@ are **not** part of the firmware or the Web UI. They are **packs**: small JSON f
 on the EMS-ESP gateway when needed, from a **source** the user chooses. Anyone can write a pack for
 another manufacturer or language and host it anywhere.
 
-Status: draft for discussion, nothing of this is implemented in the firmware yet.
+Status: implemented in the Web UI and the firmware API (see `src/web/WebFaultPackService.cpp`).
 
 ## 1. Terms
 
@@ -97,15 +97,16 @@ completely different for another manufacturer. Without a matching pack the raw c
 
 ## 6. Gateway storage and API (firmware)
 
-Stored in the gateway's file system as `/faults/<brand>.<lang>.json.gz`. The browser compresses the
+Stored in the gateway's file system as `/faults/<brand>.<lang>.json` (the content is gzip compressed) with a
+small `.meta` file next to it that holds the version and the number of entries. The browser compresses the
 file before the upload, so a pack of 350 KB needs about 45 KB.
 
 | Endpoint | Who | What |
 | --- | --- | --- |
 | `GET /rest/faultPacks` | signed-in users | list of installed packs (brand, lang, version, entries, size) and the free space |
 | `GET /rest/faultPack?brand=..&lang=..` | signed-in users | the pack file |
-| `POST /rest/faultPack` | admin | upload a pack (the compressed file) |
-| `POST /rest/action` `deleteFaultPack` | admin | remove a pack |
+| `POST /rest/uploadFaultPack?brand=..&lang=..&version=..&entries=..` | admin | upload a pack (multipart form, the compressed file) |
+| `POST /rest/deleteFaultPack` `{"brand":..,"lang":..}` | admin | remove a pack |
 
 Rules in the firmware:
 
@@ -138,7 +139,6 @@ so the Web UI does not offer installing packs there.
 - Origin and license of the Buderus explanations (`source` / `license` in the pack); to be clarified before
   any repository hosts the file.
 - Which source is pre-filled by default (this repository, or none).
-- Whether the web server of the firmware can send a stored `.gz` file with the right header; otherwise the
-  file is stored uncompressed (350 KB) or the Web UI decompresses it.
+- The firmware sends the stored file with `Content-Encoding: gzip`; to be confirmed on a real gateway.
 - The free space on real devices (settings and other files share the file system).
 - Per-device settings, such as hiding fault cards, are not part of this.

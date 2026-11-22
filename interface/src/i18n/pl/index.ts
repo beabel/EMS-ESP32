@@ -742,16 +742,23 @@ const pl: BaseTranslation = {
   SYS_FAULT_CLASS: 'Klasa błędu', // draft, please review
   SYS_FAULT_ADD: 'Kod dodatkowy {0}', // draft, please review
   SYS_FAULT_UNKNOWN: 'Brak w bazie danych', // draft, please review
-  SYS_FAULT_RAW_ONLY: 'Brak interpretacji: baza błędów dotyczy tylko urządzeń Buderus.', // draft, please review
+  SYS_FAULT_RAW_ONLY: 'Brak objaśnienia dla tego urządzenia.', // draft, please review
   SYS_FAULT_SEARCH: 'Wyszukaj kod błędu', // draft, please review
   SYS_FAULT_SEARCH_HINT: 'Wpisz kod i kod dodatkowy z wyświetlacza, np. H08, 6A 227 lub 1018.', // draft, please review
-  SYS_FAULT_SOURCE: 'Baza błędów Buderus · {0} · {1} wpisów · dotyczy tylko urządzeń Buderus', // draft, please review
-  SYS_FAULT_PACK_MISSING: 'Objaśnienia kodów błędów Buderus nie są zainstalowane. Pobierz je raz (ok. 43 KB), aby zobaczyć, co oznacza kod.', // draft, please review
+  SYS_FAULT_SOURCE: '{0} · {1} · wersja {2} · {3} wpisów', // draft, please review
+  SYS_FAULT_PACK_MISSING: 'Brak zainstalowanych objaśnień kodów błędów {0}. Wybierz poniżej źródło i zainstaluj je raz; są zapisywane w bramce i dostępne w każdej przeglądarce.', // draft, please review
   SYS_FAULT_PACK_SHORT: 'Objaśnienie nie jest zainstalowane', // draft, please review
   SYS_FAULT_PACK_INSTALL: 'Zainstaluj', // draft, please review
   SYS_FAULT_PACK_UPDATE: 'Aktualizuj', // draft, please review
   SYS_FAULT_PACK_REMOVE: 'Usuń', // draft, please review
   SYS_FAULT_PACK_ERROR: 'Pobieranie nie powiodło się: {0}', // draft, please review
+  SYS_FAULT_PACK_TITLE: 'Pakiety kodów błędów', // draft, please review
+  SYS_FAULT_PACK_SOURCE: 'Adres źródła', // draft, please review
+  SYS_FAULT_PACK_LIST: 'Pokaż pakiety', // draft, please review
+  SYS_FAULT_PACK_EMPTY: 'To źródło nie ma pakietów.', // draft, please review
+  SYS_FAULT_PACK_FULL: 'Za mało wolnego miejsca w bramce.', // draft, please review
+  SYS_FAULT_PACK_UNSUPPORTED: 'Ta bramka nie może zapisywać pakietów kodów błędów. Wymaga nowszego firmware i pamięci flash co najmniej 16 MB.', // draft, please review
+  SYS_FAULT_PACK_INSTALLED: 'Zainstalowano', // draft, please review
   SYS_FAULT_NONE: 'Brak zapisanych usterek.', // draft, please review
   SYS_FAULT_UNTIL_NOW: 'do teraz', // draft, please review
   SYS_SEV_INFO: 'Komunikat roboczy', // draft, please review
